@@ -32,6 +32,9 @@
 		4061646A2BDADD1F00021275 /* JSONFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164692BDADD1F00021275 /* JSONFunction.swift */; };
 		4061646D2BDADD9000021275 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4061646C2BDADD9000021275 /* DetailView.swift */; };
 		4061646F2BDADDAB00021275 /* CollisionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4061646E2BDADDAB00021275 /* CollisionsView.swift */; };
+		406164722BDADE1500021275 /* FileManagerTesterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164712BDADE1500021275 /* FileManagerTesterView.swift */; };
+		406164752BDADE4000021275 /* AssetsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164742BDADE4000021275 /* AssetsDataModel.swift */; };
+		406164772BDADE5200021275 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164762BDADE5200021275 /* DataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +65,9 @@
 		406164692BDADD1F00021275 /* JSONFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFunction.swift; sourceTree = "<group>"; };
 		4061646C2BDADD9000021275 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		4061646E2BDADDAB00021275 /* CollisionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisionsView.swift; sourceTree = "<group>"; };
+		406164712BDADE1500021275 /* FileManagerTesterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerTesterView.swift; sourceTree = "<group>"; };
+		406164742BDADE4000021275 /* AssetsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsDataModel.swift; sourceTree = "<group>"; };
+		406164762BDADE5200021275 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +139,7 @@
 		406164432BDADA9A00021275 /* Testers */ = {
 			isa = PBXGroup;
 			children = (
+				406164712BDADE1500021275 /* FileManagerTesterView.swift */,
 			);
 			path = Testers;
 			sourceTree = "<group>";
@@ -150,6 +157,7 @@
 		406164452BDADAA800021275 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				406164732BDADE2A00021275 /* Data */,
 				406164562BDADBFD00021275 /* SavedLevelsModel.swift */,
 				406164582BDADC0900021275 /* GridModel.swift */,
 				4061645A2BDADC2800021275 /* GridItemModel.swift */,
@@ -178,6 +186,15 @@
 				4061646E2BDADDAB00021275 /* CollisionsView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		406164732BDADE2A00021275 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				406164742BDADE4000021275 /* AssetsDataModel.swift */,
+				406164762BDADE5200021275 /* DataController.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,11 +278,14 @@
 				406164552BDADBA600021275 /* AssetsCollectionTypedView.swift in Sources */,
 				4061645B2BDADC2800021275 /* GridItemModel.swift in Sources */,
 				4061644D2BDADB3F00021275 /* EditLevelView.swift in Sources */,
+				406164772BDADE5200021275 /* DataController.swift in Sources */,
+				406164722BDADE1500021275 /* FileManagerTesterView.swift in Sources */,
 				406164572BDADBFD00021275 /* SavedLevelsModel.swift in Sources */,
 				406164612BDADC7400021275 /* LevelGridForSwiftDataModel.swift in Sources */,
 				4061644F2BDADB5800021275 /* SoundEditorView.swift in Sources */,
 				4061646A2BDADD1F00021275 /* JSONFunction.swift in Sources */,
 				406164682BDADD0800021275 /* StringFunction.swift in Sources */,
+				406164752BDADE4000021275 /* AssetsDataModel.swift in Sources */,
 				406164362BDAD9DB00021275 /* Item.swift in Sources */,
 				406164532BDADB8A00021275 /* AssetsCollectionView.swift in Sources */,
 				406164512BDADB7300021275 /* SavedLevelsView.swift in Sources */,
