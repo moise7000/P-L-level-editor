@@ -35,6 +35,8 @@
 		406164722BDADE1500021275 /* FileManagerTesterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164712BDADE1500021275 /* FileManagerTesterView.swift */; };
 		406164752BDADE4000021275 /* AssetsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164742BDADE4000021275 /* AssetsDataModel.swift */; };
 		406164772BDADE5200021275 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164762BDADE5200021275 /* DataController.swift */; };
+		4061647A2BDADEB000021275 /* animal_bird_duck_quack_003.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 406164792BDADEB000021275 /* animal_bird_duck_quack_003.mp3 */; };
+		4061647C2BDADEB600021275 /* animal_bird_duck_quack_001.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4061647B2BDADEB600021275 /* animal_bird_duck_quack_001.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 		406164712BDADE1500021275 /* FileManagerTesterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerTesterView.swift; sourceTree = "<group>"; };
 		406164742BDADE4000021275 /* AssetsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsDataModel.swift; sourceTree = "<group>"; };
 		406164762BDADE5200021275 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		406164792BDADEB000021275 /* animal_bird_duck_quack_003.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = animal_bird_duck_quack_003.mp3; sourceTree = "<group>"; };
+		4061647B2BDADEB600021275 /* animal_bird_duck_quack_001.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = animal_bird_duck_quack_001.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,7 @@
 				406164372BDAD9DE00021275 /* Assets.xcassets */,
 				4061643C2BDAD9DE00021275 /* P_L_Level_Editor.entitlements */,
 				406164392BDAD9DE00021275 /* Preview Content */,
+				406164782BDADEA100021275 /* Sound */,
 			);
 			path = "P-L-Level-Editor";
 			sourceTree = "<group>";
@@ -197,6 +202,15 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		406164782BDADEA100021275 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				406164792BDADEB000021275 /* animal_bird_duck_quack_003.mp3 */,
+				4061647B2BDADEB600021275 /* animal_bird_duck_quack_001.mp3 */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -255,6 +269,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4061647C2BDADEB600021275 /* animal_bird_duck_quack_001.mp3 in Resources */,
+				4061647A2BDADEB000021275 /* animal_bird_duck_quack_003.mp3 in Resources */,
 				4061643B2BDAD9DE00021275 /* Preview Assets.xcassets in Resources */,
 				406164382BDAD9DE00021275 /* Assets.xcassets in Resources */,
 			);
