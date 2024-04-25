@@ -26,6 +26,10 @@
 		4061645D2BDADC4000021275 /* AssetsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4061645C2BDADC4000021275 /* AssetsModel.swift */; };
 		4061645F2BDADC5200021275 /* APTModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4061645E2BDADC5200021275 /* APTModel.swift */; };
 		406164612BDADC7400021275 /* LevelGridForSwiftDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164602BDADC7400021275 /* LevelGridForSwiftDataModel.swift */; };
+		406164642BDADCD900021275 /* ArrayFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164632BDADCD900021275 /* ArrayFunction.swift */; };
+		406164662BDADCEE00021275 /* ImageFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164652BDADCEE00021275 /* ImageFunction.swift */; };
+		406164682BDADD0800021275 /* StringFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164672BDADD0800021275 /* StringFunction.swift */; };
+		4061646A2BDADD1F00021275 /* JSONFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164692BDADD1F00021275 /* JSONFunction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +54,10 @@
 		4061645C2BDADC4000021275 /* AssetsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsModel.swift; sourceTree = "<group>"; };
 		4061645E2BDADC5200021275 /* APTModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APTModel.swift; sourceTree = "<group>"; };
 		406164602BDADC7400021275 /* LevelGridForSwiftDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelGridForSwiftDataModel.swift; sourceTree = "<group>"; };
+		406164632BDADCD900021275 /* ArrayFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayFunction.swift; sourceTree = "<group>"; };
+		406164652BDADCEE00021275 /* ImageFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFunction.swift; sourceTree = "<group>"; };
+		406164672BDADD0800021275 /* StringFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringFunction.swift; sourceTree = "<group>"; };
+		406164692BDADD1F00021275 /* JSONFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFunction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +92,6 @@
 			children = (
 				406164312BDAD9DB00021275 /* P_L_Level_EditorApp.swift */,
 				406164442BDADAA000021275 /* Helpers */,
-				406164432BDADA9A00021275 /* Testers */,
 				406164422BDADA8D00021275 /* Views */,
 				406164452BDADAA800021275 /* Models */,
 				406164352BDAD9DB00021275 /* Item.swift */,
@@ -129,6 +136,8 @@
 		406164442BDADAA000021275 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				406164622BDADCC900021275 /* Functions */,
+				406164432BDADA9A00021275 /* Testers */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -144,6 +153,17 @@
 				406164602BDADC7400021275 /* LevelGridForSwiftDataModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		406164622BDADCC900021275 /* Functions */ = {
+			isa = PBXGroup;
+			children = (
+				406164632BDADCD900021275 /* ArrayFunction.swift */,
+				406164652BDADCEE00021275 /* ImageFunction.swift */,
+				406164672BDADD0800021275 /* StringFunction.swift */,
+				406164692BDADD1F00021275 /* JSONFunction.swift */,
+			);
+			path = Functions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +237,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4061645D2BDADC4000021275 /* AssetsModel.swift in Sources */,
+				406164662BDADCEE00021275 /* ImageFunction.swift in Sources */,
+				406164642BDADCD900021275 /* ArrayFunction.swift in Sources */,
 				406164592BDADC0900021275 /* GridModel.swift in Sources */,
 				4061644B2BDADB2000021275 /* NewLevelView.swift in Sources */,
 				406164342BDAD9DB00021275 /* ContentView.swift in Sources */,
@@ -226,6 +248,8 @@
 				406164572BDADBFD00021275 /* SavedLevelsModel.swift in Sources */,
 				406164612BDADC7400021275 /* LevelGridForSwiftDataModel.swift in Sources */,
 				4061644F2BDADB5800021275 /* SoundEditorView.swift in Sources */,
+				4061646A2BDADD1F00021275 /* JSONFunction.swift in Sources */,
+				406164682BDADD0800021275 /* StringFunction.swift in Sources */,
 				406164362BDAD9DB00021275 /* Item.swift in Sources */,
 				406164532BDADB8A00021275 /* AssetsCollectionView.swift in Sources */,
 				406164512BDADB7300021275 /* SavedLevelsView.swift in Sources */,
