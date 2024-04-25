@@ -20,6 +20,12 @@
 		406164512BDADB7300021275 /* SavedLevelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164502BDADB7300021275 /* SavedLevelsView.swift */; };
 		406164532BDADB8A00021275 /* AssetsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164522BDADB8A00021275 /* AssetsCollectionView.swift */; };
 		406164552BDADBA600021275 /* AssetsCollectionTypedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164542BDADBA600021275 /* AssetsCollectionTypedView.swift */; };
+		406164572BDADBFD00021275 /* SavedLevelsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164562BDADBFD00021275 /* SavedLevelsModel.swift */; };
+		406164592BDADC0900021275 /* GridModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164582BDADC0900021275 /* GridModel.swift */; };
+		4061645B2BDADC2800021275 /* GridItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4061645A2BDADC2800021275 /* GridItemModel.swift */; };
+		4061645D2BDADC4000021275 /* AssetsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4061645C2BDADC4000021275 /* AssetsModel.swift */; };
+		4061645F2BDADC5200021275 /* APTModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4061645E2BDADC5200021275 /* APTModel.swift */; };
+		406164612BDADC7400021275 /* LevelGridForSwiftDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164602BDADC7400021275 /* LevelGridForSwiftDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +44,12 @@
 		406164502BDADB7300021275 /* SavedLevelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLevelsView.swift; sourceTree = "<group>"; };
 		406164522BDADB8A00021275 /* AssetsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsCollectionView.swift; sourceTree = "<group>"; };
 		406164542BDADBA600021275 /* AssetsCollectionTypedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsCollectionTypedView.swift; sourceTree = "<group>"; };
+		406164562BDADBFD00021275 /* SavedLevelsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLevelsModel.swift; sourceTree = "<group>"; };
+		406164582BDADC0900021275 /* GridModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridModel.swift; sourceTree = "<group>"; };
+		4061645A2BDADC2800021275 /* GridItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridItemModel.swift; sourceTree = "<group>"; };
+		4061645C2BDADC4000021275 /* AssetsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsModel.swift; sourceTree = "<group>"; };
+		4061645E2BDADC5200021275 /* APTModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APTModel.swift; sourceTree = "<group>"; };
+		406164602BDADC7400021275 /* LevelGridForSwiftDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelGridForSwiftDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,10 +83,10 @@
 			isa = PBXGroup;
 			children = (
 				406164312BDAD9DB00021275 /* P_L_Level_EditorApp.swift */,
-				406164452BDADAA800021275 /* Models */,
 				406164442BDADAA000021275 /* Helpers */,
 				406164432BDADA9A00021275 /* Testers */,
 				406164422BDADA8D00021275 /* Views */,
+				406164452BDADAA800021275 /* Models */,
 				406164352BDAD9DB00021275 /* Item.swift */,
 				406164372BDAD9DE00021275 /* Assets.xcassets */,
 				4061643C2BDAD9DE00021275 /* P_L_Level_Editor.entitlements */,
@@ -124,6 +136,12 @@
 		406164452BDADAA800021275 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				406164562BDADBFD00021275 /* SavedLevelsModel.swift */,
+				406164582BDADC0900021275 /* GridModel.swift */,
+				4061645A2BDADC2800021275 /* GridItemModel.swift */,
+				4061645C2BDADC4000021275 /* AssetsModel.swift */,
+				4061645E2BDADC5200021275 /* APTModel.swift */,
+				406164602BDADC7400021275 /* LevelGridForSwiftDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -198,10 +216,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4061645D2BDADC4000021275 /* AssetsModel.swift in Sources */,
+				406164592BDADC0900021275 /* GridModel.swift in Sources */,
 				4061644B2BDADB2000021275 /* NewLevelView.swift in Sources */,
 				406164342BDAD9DB00021275 /* ContentView.swift in Sources */,
 				406164552BDADBA600021275 /* AssetsCollectionTypedView.swift in Sources */,
+				4061645B2BDADC2800021275 /* GridItemModel.swift in Sources */,
 				4061644D2BDADB3F00021275 /* EditLevelView.swift in Sources */,
+				406164572BDADBFD00021275 /* SavedLevelsModel.swift in Sources */,
+				406164612BDADC7400021275 /* LevelGridForSwiftDataModel.swift in Sources */,
 				4061644F2BDADB5800021275 /* SoundEditorView.swift in Sources */,
 				406164362BDAD9DB00021275 /* Item.swift in Sources */,
 				406164532BDADB8A00021275 /* AssetsCollectionView.swift in Sources */,
@@ -209,6 +232,7 @@
 				406164492BDADB0500021275 /* ArrowView.swift in Sources */,
 				406164472BDADAEB00021275 /* LevelEditorView.swift in Sources */,
 				406164322BDAD9DB00021275 /* P_L_Level_EditorApp.swift in Sources */,
+				4061645F2BDADC5200021275 /* APTModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
