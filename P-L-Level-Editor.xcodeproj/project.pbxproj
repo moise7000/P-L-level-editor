@@ -12,6 +12,14 @@
 		406164362BDAD9DB00021275 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164352BDAD9DB00021275 /* Item.swift */; };
 		406164382BDAD9DE00021275 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 406164372BDAD9DE00021275 /* Assets.xcassets */; };
 		4061643B2BDAD9DE00021275 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4061643A2BDAD9DE00021275 /* Preview Assets.xcassets */; };
+		406164472BDADAEB00021275 /* LevelEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164462BDADAEB00021275 /* LevelEditorView.swift */; };
+		406164492BDADB0500021275 /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164482BDADB0500021275 /* ArrowView.swift */; };
+		4061644B2BDADB2000021275 /* NewLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4061644A2BDADB2000021275 /* NewLevelView.swift */; };
+		4061644D2BDADB3F00021275 /* EditLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4061644C2BDADB3F00021275 /* EditLevelView.swift */; };
+		4061644F2BDADB5800021275 /* SoundEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4061644E2BDADB5800021275 /* SoundEditorView.swift */; };
+		406164512BDADB7300021275 /* SavedLevelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164502BDADB7300021275 /* SavedLevelsView.swift */; };
+		406164532BDADB8A00021275 /* AssetsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164522BDADB8A00021275 /* AssetsCollectionView.swift */; };
+		406164552BDADBA600021275 /* AssetsCollectionTypedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164542BDADBA600021275 /* AssetsCollectionTypedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +30,14 @@
 		406164372BDAD9DE00021275 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4061643A2BDAD9DE00021275 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4061643C2BDAD9DE00021275 /* P_L_Level_Editor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = P_L_Level_Editor.entitlements; sourceTree = "<group>"; };
+		406164462BDADAEB00021275 /* LevelEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelEditorView.swift; sourceTree = "<group>"; };
+		406164482BDADB0500021275 /* ArrowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowView.swift; sourceTree = "<group>"; };
+		4061644A2BDADB2000021275 /* NewLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLevelView.swift; sourceTree = "<group>"; };
+		4061644C2BDADB3F00021275 /* EditLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLevelView.swift; sourceTree = "<group>"; };
+		4061644E2BDADB5800021275 /* SoundEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEditorView.swift; sourceTree = "<group>"; };
+		406164502BDADB7300021275 /* SavedLevelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLevelsView.swift; sourceTree = "<group>"; };
+		406164522BDADB8A00021275 /* AssetsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsCollectionView.swift; sourceTree = "<group>"; };
+		406164542BDADBA600021275 /* AssetsCollectionTypedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsCollectionTypedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +71,10 @@
 			isa = PBXGroup;
 			children = (
 				406164312BDAD9DB00021275 /* P_L_Level_EditorApp.swift */,
-				406164332BDAD9DB00021275 /* ContentView.swift */,
+				406164452BDADAA800021275 /* Models */,
+				406164442BDADAA000021275 /* Helpers */,
+				406164432BDADA9A00021275 /* Testers */,
+				406164422BDADA8D00021275 /* Views */,
 				406164352BDAD9DB00021275 /* Item.swift */,
 				406164372BDAD9DE00021275 /* Assets.xcassets */,
 				4061643C2BDAD9DE00021275 /* P_L_Level_Editor.entitlements */,
@@ -70,6 +89,43 @@
 				4061643A2BDAD9DE00021275 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		406164422BDADA8D00021275 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				406164332BDAD9DB00021275 /* ContentView.swift */,
+				406164462BDADAEB00021275 /* LevelEditorView.swift */,
+				406164482BDADB0500021275 /* ArrowView.swift */,
+				4061644A2BDADB2000021275 /* NewLevelView.swift */,
+				4061644C2BDADB3F00021275 /* EditLevelView.swift */,
+				4061644E2BDADB5800021275 /* SoundEditorView.swift */,
+				406164502BDADB7300021275 /* SavedLevelsView.swift */,
+				406164522BDADB8A00021275 /* AssetsCollectionView.swift */,
+				406164542BDADBA600021275 /* AssetsCollectionTypedView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		406164432BDADA9A00021275 /* Testers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Testers;
+			sourceTree = "<group>";
+		};
+		406164442BDADAA000021275 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		406164452BDADAA800021275 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,8 +198,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4061644B2BDADB2000021275 /* NewLevelView.swift in Sources */,
 				406164342BDAD9DB00021275 /* ContentView.swift in Sources */,
+				406164552BDADBA600021275 /* AssetsCollectionTypedView.swift in Sources */,
+				4061644D2BDADB3F00021275 /* EditLevelView.swift in Sources */,
+				4061644F2BDADB5800021275 /* SoundEditorView.swift in Sources */,
 				406164362BDAD9DB00021275 /* Item.swift in Sources */,
+				406164532BDADB8A00021275 /* AssetsCollectionView.swift in Sources */,
+				406164512BDADB7300021275 /* SavedLevelsView.swift in Sources */,
+				406164492BDADB0500021275 /* ArrowView.swift in Sources */,
+				406164472BDADAEB00021275 /* LevelEditorView.swift in Sources */,
 				406164322BDAD9DB00021275 /* P_L_Level_EditorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
