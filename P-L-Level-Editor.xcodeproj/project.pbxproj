@@ -37,6 +37,7 @@
 		406164772BDADE5200021275 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164762BDADE5200021275 /* DataController.swift */; };
 		4061647A2BDADEB000021275 /* animal_bird_duck_quack_003.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 406164792BDADEB000021275 /* animal_bird_duck_quack_003.mp3 */; };
 		4061647C2BDADEB600021275 /* animal_bird_duck_quack_001.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4061647B2BDADEB600021275 /* animal_bird_duck_quack_001.mp3 */; };
+		4061647E2BDADFAF00021275 /* PlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4061647D2BDADFAF00021275 /* PlaygroundView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		406164762BDADE5200021275 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		406164792BDADEB000021275 /* animal_bird_duck_quack_003.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = animal_bird_duck_quack_003.mp3; sourceTree = "<group>"; };
 		4061647B2BDADEB600021275 /* animal_bird_duck_quack_001.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = animal_bird_duck_quack_001.mp3; sourceTree = "<group>"; };
+		4061647D2BDADFAF00021275 /* PlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				4061646B2BDADD8400021275 /* Views */,
 				406164622BDADCC900021275 /* Functions */,
 				406164432BDADA9A00021275 /* Testers */,
+				4061647D2BDADFAF00021275 /* PlaygroundView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				406164362BDAD9DB00021275 /* Item.swift in Sources */,
 				406164532BDADB8A00021275 /* AssetsCollectionView.swift in Sources */,
 				406164512BDADB7300021275 /* SavedLevelsView.swift in Sources */,
+				4061647E2BDADFAF00021275 /* PlaygroundView.swift in Sources */,
 				406164492BDADB0500021275 /* ArrowView.swift in Sources */,
 				406164472BDADAEB00021275 /* LevelEditorView.swift in Sources */,
 				406164322BDAD9DB00021275 /* P_L_Level_EditorApp.swift in Sources */,
