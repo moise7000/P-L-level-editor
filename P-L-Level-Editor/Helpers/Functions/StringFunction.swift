@@ -68,6 +68,24 @@ func extractJsonPathFromUrlString(from urlString: String) -> String? {
     
 }
 
+func getTypeFromUrlString(from urlString: String) -> AssetsType? {
+    // cut at "src/" and take the last
+    let componentsAfterSRC_ASSETS = urlString.components(separatedBy: "src/assets/")
+    let typePath = componentsAfterSRC_ASSETS.last
+    // cut at all "/" and take the first
+    let components = typePath?.components(separatedBy: "/")
+    // convert the string type into a type
+    let typeString = components?.first
+    
+    if typeString != nil {
+        return getTypeFromString(from: typeString!)
+    } else {
+        return nil
+    }
+    
+   
+}
+
 func urlPathToJsonFormatPath(_ url: String) -> String {
     return url.replacingOccurrences(of: "/", with: "_")
 }

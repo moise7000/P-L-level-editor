@@ -29,6 +29,9 @@ func getTypeFromString(from string:String) -> AssetsType? {
     return nil
 }
 
+
+
+
 struct Assets : Hashable, Codable {
     var id: String
     var type: AssetsType

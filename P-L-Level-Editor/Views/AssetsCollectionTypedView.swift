@@ -25,23 +25,11 @@ struct AssetsCollectionTypedView: View {
                     LazyVGrid(columns: gridLayout, spacing: 20) {
                         
                         ForEach(getAssetsByType(AssetsFileMonitorSingleton.shared.getAssets(), assetType: type), id:\.self) { asset in
-                            
-                                
-                                
+                        
                         }
                         
                         
-                        Button{
-                            print("button pressed")
-                        } label: {
-                            Text("+")
-                                .font(.title)
-                                .frame(width: 70, height: 70)
-                                .foregroundStyle(.pink)
-     
-                        }
-                        .padding()
-                        .opacity(0.5)
+                        
                         
                         
                         

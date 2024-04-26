@@ -99,12 +99,12 @@ class AssetsFileMonitorSingleton {
         }
     }
     
-    private func transformFilesIntoAssets() -> [Assets] {
+    private func transformFilesIntoAssets() -> Void {
         self.loadFiles()
-        var assets: [Assets] = []
+        
         for file in files {
             let urlString = fromUrlToString(from: file)
-            if let type = getTypeFromString(from: urlString) {
+            if let type = getTypeFromUrlString(from: urlString) {
        
                 if let imageName = getImageNameFromUrlString(from: urlString) {
                     let newAsset = Assets(id: imageName, type: type, image: imageName, url: file)
@@ -118,9 +118,10 @@ class AssetsFileMonitorSingleton {
             }
             
         }
-        
-        
-        return assets
+    }
+    
+    func loadAssets() -> Void {
+        self.transformFilesIntoAssets()
     }
     
     func getAssets() -> [Assets] {
@@ -129,6 +130,7 @@ class AssetsFileMonitorSingleton {
     
     func refresh() -> Void {
         self.loadFiles()
+        self.loadAssets()
     }
     
     func DEBUG() -> Void {
