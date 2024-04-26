@@ -48,6 +48,17 @@ func isStringContaintsSubString(_ main:String, _ sub: String) -> Bool{
 }
 
 
+func extractJsonPathFromUrlString(from urlString: String) -> String? {
+    if let range = urlString.range(of: "src") {
+        let nouveauChemin = String(urlString[range.lowerBound...])
+        return nouveauChemin
+    } else {
+        print("[!] ERROR: The url string don't contains src ...")
+        return nil
+    }
+    
+}
+
 func urlPathToJsonFormatPath(_ url: String) -> String {
     return url.replacingOccurrences(of: "/", with: "_")
 }
@@ -63,4 +74,6 @@ func fromUrlToString(from url: URL) -> String {
 func fromStringToUrl(from string: String) -> URL? {
     return URL(string: string)
 }
+
+
 
