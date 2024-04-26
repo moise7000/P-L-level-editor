@@ -41,3 +41,26 @@ func getAssetNameFromAssetBashPath(form path: String) -> String? {
 func makeIdentifierFromString(from entityName: String) -> String {
     return entityName + "_" + UUID().uuidString
 }
+
+
+func isStringContaintsSubString(_ main:String, _ sub: String) -> Bool{
+    return main.contains(sub)
+}
+
+
+func urlPathToJsonFormatPath(_ url: String) -> String {
+    return url.replacingOccurrences(of: "/", with: "_")
+}
+
+func jsonFormatPathToUrlPath(_ jsonFormat: String) -> String {
+    return jsonFormat.replacingOccurrences(of: "_", with: "/")
+}
+
+func fromUrlToString(from url: URL) -> String {
+    return url.absoluteString
+}
+
+func fromStringToUrl(from string: String) -> URL? {
+    return URL(string: string)
+}
+
