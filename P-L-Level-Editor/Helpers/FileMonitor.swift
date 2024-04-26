@@ -101,7 +101,7 @@ class AssetsFileMonitorSingleton {
     
     private func transformFilesIntoAssets() -> Void {
         self.loadFiles()
-        
+        self.assets.removeAll()
         for file in files {
             let urlString = fromUrlToString(from: file)
             if let type = getTypeFromUrlString(from: urlString) {

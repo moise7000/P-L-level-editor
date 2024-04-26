@@ -25,7 +25,7 @@ struct AssetsCollectionTypedView: View {
                     LazyVGrid(columns: gridLayout, spacing: 20) {
                         
                         ForEach(getAssetsByType(AssetsFileMonitorSingleton.shared.getAssets(), assetType: type), id:\.self) { asset in
-                        
+                            Image(nsImage: NSImage(contentsOf: asset.url!)!)
                         }
                         
                         
@@ -41,6 +41,9 @@ struct AssetsCollectionTypedView: View {
                 }
             }
             .navigationTitle("\(type)")
+        }
+        .onAppear{
+            AssetsFileMonitorSingleton.shared.refresh()
         }
         
        
