@@ -101,13 +101,21 @@ struct ContentView: View {
                                 NSCursor.pop()
                             }
                         }
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+ 
+                }
+                
+                NavigationLink(destination: FileMonitorTestView()) {
+                    Text("Pakbo & Lombric & TEST")
+                        
+                        .padding()
+                        .onHover { hovering in
+                            if hovering {
+                                NSCursor(image: NSImage(named: "lombric_mouse")!, hotSpot: NSPoint(x: 0, y: 0)).push()
+                            } else {
+                                NSCursor.pop()
+                            }
+                        }
+ 
                 }
                 
                 

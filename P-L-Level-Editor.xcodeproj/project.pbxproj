@@ -38,6 +38,8 @@
 		4061647A2BDADEB000021275 /* animal_bird_duck_quack_003.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 406164792BDADEB000021275 /* animal_bird_duck_quack_003.mp3 */; };
 		4061647C2BDADEB600021275 /* animal_bird_duck_quack_001.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4061647B2BDADEB600021275 /* animal_bird_duck_quack_001.mp3 */; };
 		4061647E2BDADFAF00021275 /* PlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4061647D2BDADFAF00021275 /* PlaygroundView.swift */; };
+		40C319482BDB9A5100EF6DDC /* FileMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C319472BDB9A5100EF6DDC /* FileMonitor.swift */; };
+		40C3194A2BDB9AD800EF6DDC /* FileMonitorTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C319492BDB9AD800EF6DDC /* FileMonitorTestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,8 @@
 		406164792BDADEB000021275 /* animal_bird_duck_quack_003.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = animal_bird_duck_quack_003.mp3; sourceTree = "<group>"; };
 		4061647B2BDADEB600021275 /* animal_bird_duck_quack_001.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = animal_bird_duck_quack_001.mp3; sourceTree = "<group>"; };
 		4061647D2BDADFAF00021275 /* PlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundView.swift; sourceTree = "<group>"; };
+		40C319472BDB9A5100EF6DDC /* FileMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileMonitor.swift; sourceTree = "<group>"; };
+		40C319492BDB9AD800EF6DDC /* FileMonitorTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileMonitorTestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				406164712BDADE1500021275 /* FileManagerTesterView.swift */,
+				40C319492BDB9AD800EF6DDC /* FileMonitorTestView.swift */,
 			);
 			path = Testers;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 				406164622BDADCC900021275 /* Functions */,
 				406164432BDADA9A00021275 /* Testers */,
 				4061647D2BDADFAF00021275 /* PlaygroundView.swift */,
+				40C319472BDB9A5100EF6DDC /* FileMonitor.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -302,9 +308,11 @@
 				406164572BDADBFD00021275 /* SavedLevelsModel.swift in Sources */,
 				406164612BDADC7400021275 /* LevelGridForSwiftDataModel.swift in Sources */,
 				4061644F2BDADB5800021275 /* SoundEditorView.swift in Sources */,
+				40C319482BDB9A5100EF6DDC /* FileMonitor.swift in Sources */,
 				4061646A2BDADD1F00021275 /* JSONFunction.swift in Sources */,
 				406164682BDADD0800021275 /* StringFunction.swift in Sources */,
 				406164752BDADE4000021275 /* AssetsDataModel.swift in Sources */,
+				40C3194A2BDB9AD800EF6DDC /* FileMonitorTestView.swift in Sources */,
 				406164362BDAD9DB00021275 /* Item.swift in Sources */,
 				406164532BDADB8A00021275 /* AssetsCollectionView.swift in Sources */,
 				406164512BDADB7300021275 /* SavedLevelsView.swift in Sources */,
