@@ -1,24 +1,50 @@
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct FileMonitorTestView: View {
-    @ObservedObject var fileMonitor = FileMonitor()
-
+    @State private var images = [URL]()
+    @AppStorage("selectedDirectory") var selectedDirectory: String = ""
+    
     var body: some View {
         VStack {
-            List(fileMonitor.files, id: \.self) { file in
-                Text(file)
-            }
-            Button("Choose Folder") {
+            Button("Choisir un dossier") {
                 let openPanel = NSOpenPanel()
                 openPanel.canChooseFiles = false
                 openPanel.canChooseDirectories = true
-                openPanel.allowsMultipleSelection = false
-                openPanel.begin { (result) in
-                    if result == .OK {
-                        fileMonitor.url = openPanel.url
-                    }
+                
+                if openPanel.runModal() == .OK {
+                    selectedDirectory = openPanel.url!.path
+                    loadImages()
                 }
+            }
+            
+            List(images, id: \.self) { url in
+                Image(nsImage: NSImage(contentsOf: url)!)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            }
+        }
+        .onAppear(perform: loadImages)
+    }
+    
+    func loadImages() {
+        guard !selectedDirectory.isEmpty, let url = URL(string: selectedDirectory) else { return }
+        
+        let fileManager = FileManager.default
+        let enumerator = fileManager.enumerator(at: url, includingPropertiesForKeys: [.isRegularFileKey], options: [])
+        
+        images.removeAll()
+        
+        while let url = enumerator?.nextObject() as? URL {
+            do {
+                let resourceValues = try url.resourceValues(forKeys: [.isRegularFileKey])
+                if resourceValues.isRegularFile!, url.pathExtension == "png" {
+                    images.append(url)
+                }
+            } catch {
+                print("Erreur lors de la lecture des propriétés du fichier: \(error)")
             }
         }
     }
 }
+

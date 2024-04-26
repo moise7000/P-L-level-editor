@@ -1,11 +1,3 @@
-//
-//  FileMonitor.swift
-//  P-L-Level-Editor
-//
-//  Created by ewan decima on 26/04/2024.
-//
-
-import Foundation
 import SwiftUI
 import Combine
 import AppKit
@@ -17,7 +9,9 @@ class FileMonitor: ObservableObject {
         didSet {
             if let url = url {
                 startMonitoringFolder(url: url)
-                printAllFilesInFolder(url: url)
+                DispatchQueue.main.async {
+                    self.printAllFilesInFolder(url: url)
+                }
             }
         }
     }
@@ -42,7 +36,9 @@ class FileMonitor: ObservableObject {
     func updateFiles(url: URL) {
         do {
             let fileURLs = try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil)
-            files = fileURLs.map { $0.lastPathComponent }
+            DispatchQueue.main.async {
+                self.files = fileURLs.map { $0.lastPathComponent }
+            }
         } catch {
             print("Error while enumerating files \(url.path): \(error.localizedDescription)")
         }
