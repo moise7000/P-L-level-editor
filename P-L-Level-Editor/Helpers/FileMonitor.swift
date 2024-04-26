@@ -5,6 +5,11 @@ import AppKit
 class FileMonitor: ObservableObject {
     var source: DispatchSourceFileSystemObject?
     @Published var files: [String] = []
+    @Published var EntitiesFiles: [String] = []
+    @Published var StrcuturesFiles: [String] = []
+    @Published var BackgroundFiles: [String] = []
+    
+    
     var url: URL? {
         didSet {
             if let url = url {
@@ -52,6 +57,15 @@ class FileMonitor: ObservableObject {
             print(url.appendingPathComponent(file).path)
         }
     }
+}
+
+
+class AssetsFileMonitor: ObservableObject{
+    @Published var files: [URL] = []
+    @Published var EntitiesFiles: [URL] = []
+    @Published var StrcuturesFiles: [URL] = []
+    @Published var BackgroundFiles: [String] = []
+    
 }
 
 

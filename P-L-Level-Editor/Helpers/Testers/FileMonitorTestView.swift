@@ -2,6 +2,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 struct FileMonitorTestView: View {
+    @ObservedObject var assetsMonitor = AssetsFileMonitor()
     @State private var images = [URL]()
     @AppStorage("selectedDirectory") var selectedDirectory: String = ""
     
@@ -29,14 +30,34 @@ struct FileMonitorTestView: View {
                     
                     
                 }
+                .padding()
                 
-                List(images, id: \.self) { url in
-                    Image(nsImage: NSImage(contentsOf: url)!)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
+                
+                GeometryReader { geometry in
+                    let columns = Int(geometry.size.width / 100)
+                    let gridLayout = Array(repeating: GridItem(.flexible()), count: columns)
+
+                    ScrollView {
+                        LazyVGrid(columns: gridLayout, spacing: 20) {
+                            
+                            ForEach(images, id:\.self) { url in
+                                Image(nsImage: NSImage(contentsOf: url)!)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    
+                                    
+                            }
+      
+                            
+                        }
+                        .padding(.all, 10)
+                    }
+                    .onAppear(perform: loadImages)
                 }
+                
+                
+                
             }
-            .onAppear(perform: loadImages)
             .padding()
         }
         
@@ -57,6 +78,8 @@ struct FileMonitorTestView: View {
                 let resourceValues = try url.resourceValues(forKeys: [.isRegularFileKey])
                 if resourceValues.isRegularFile!, url.pathExtension == "png" {
                     images.append(url)
+                    assetsMonitor.files.append(url)
+                    
                 }
             } catch {
                 print("Erreur lors de la lecture des propriétés du fichier: \(error)")
