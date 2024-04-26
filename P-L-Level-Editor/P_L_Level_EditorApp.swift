@@ -32,7 +32,7 @@ struct levelEditorApp: App {
             ContentView()
                 .onAppear{
                     //Load all the asset if the userdefault exists
-                    assetsMonitor.loadImages()
+                    assetsMonitor.loadAssets()
                     assetsMonitor.printFiles()
                 }
         }

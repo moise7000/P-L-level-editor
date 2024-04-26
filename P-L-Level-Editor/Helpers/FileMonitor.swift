@@ -66,10 +66,10 @@ class AssetsFileMonitor: ObservableObject{
     
     @Published var files: [URL] = []
     @Published var EntitiesFiles: [URL] = []
-    @Published var StrcuturesFiles: [URL] = []
-    @Published var BackgroundFiles: [String] = []
+    @Published var StructuresFiles: [URL] = []
+    @Published var BackgroundFiles: [URL] = []
     
-    func loadImages() -> Void {
+    private func loadFiles() -> Void {
         guard !selectedDirectory.isEmpty, let url = URL(string: selectedDirectory) else { return }
         
         let fileManager = FileManager.default
@@ -97,6 +97,41 @@ class AssetsFileMonitor: ObservableObject{
         
     }
     
+    
+    func loadEntities() -> Void {
+        for file in self.files {
+            if isStringContaintsSubString(fromUrlToString(from: file), "assets/entities") {
+                self.EntitiesFiles.append(file)
+            }
+        }
+                
+    }
+    
+    func loadStrucutres() -> Void {
+        for file in self.files {
+            if isStringContaintsSubString(fromUrlToString(from: file), "assets/structures") {
+                self.StructuresFiles.append(file)
+            }
+        }
+                
+    }
+    
+    func loadBackground() -> Void {
+        for file in self.files {
+            if isStringContaintsSubString(fromUrlToString(from: file), "assets/background") {
+                self.BackgroundFiles.append(file)
+            }
+        }
+                
+    }
+
+    func loadAssets() -> Void{
+        self.loadFiles()
+        self.loadEntities()
+        self.loadStrucutres()
+        self.loadBackground()
+    }
+     
 }
 
 
