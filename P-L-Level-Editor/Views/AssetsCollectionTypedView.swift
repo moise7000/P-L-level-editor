@@ -11,8 +11,8 @@ import SwiftData
 struct AssetsCollectionTypedView: View {
     
     var type: AssetsType
-    @Query() private var typedAssets: [AssetsDataModel]
     
+    @ObservedObject var assetsMonitor = AssetsFileMonitor()
     
     var body: some View {
         
@@ -24,8 +24,8 @@ struct AssetsCollectionTypedView: View {
                 ScrollView {
                     LazyVGrid(columns: gridLayout, spacing: 20) {
                         
-                        ForEach(getAllAssetsByType(assets: typedAssets, type: type)) { asset in
-                            Text(asset.imageJsonPath)
+                        ForEach(getAssetsByType(assetsMonitor.getAssets(), assetType: type), id:\.self) { asset in
+                            
                                 
                                 
                         }
@@ -53,6 +53,9 @@ struct AssetsCollectionTypedView: View {
                 }
             }
             .navigationTitle("\(type)")
+        }
+        .onAppear{
+            assetsMonitor.loadAssets()
         }
        
         

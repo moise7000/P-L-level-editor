@@ -11,9 +11,9 @@ struct ContentView: View {
     var body: some View {
         
         let stringViews = ["New Level",
+                           "Edit Level",
                            "SoundEditorView",
-                           "PlaygroundView",
-                           "AssetsCollectionView",
+                           "Assets",
                            "FileManagerTesterView",
                            "FileMonitorTestView"]
         
@@ -26,15 +26,15 @@ struct ContentView: View {
                 NewLevelView()
             }
             
-            if selectedView == "SoundEditorView" {
-                SoundEditorView()
-            }
             
-            if selectedView == "PlaygroundView" {
+            if selectedView == "Edit Level" {
                 PlaygroundView()
             }
-            if selectedView == "AssetsCollectionView" {
+            if selectedView == "Assets" {
                 AssetsCollectionView()
+            }
+            if selectedView == "SoundEditorView" {
+                SoundEditorView()
             }
             if selectedView == "FileManagerTesterView" {
                 FileManagerTesterView()

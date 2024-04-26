@@ -16,10 +16,24 @@ enum AssetsType: Codable, CaseIterable {
 }
 
 
+func getTypeFromString(from string:String) -> AssetsType? {
+    if string == "entities" {
+        return AssetsType.ENTITY
+    }
+    if string == "structures" {
+        return AssetsType.STRUCTURE
+    }
+    if string == "background" {
+        return AssetsType.BACKGROUND
+    }
+    return nil
+}
+
 struct Assets : Hashable, Codable {
     var id: String
     var type: AssetsType
     var image: String
+    var url: URL?
 }
 
 func affectAssetsType(imageNames:[String], type: AssetsType) -> [Assets] {
@@ -29,6 +43,17 @@ func affectAssetsType(imageNames:[String], type: AssetsType) -> [Assets] {
         out.append(Assets(id: assetId, type: type, image: imageName))
     }
     return out
+}
+
+
+func getAssetsByType(_ assets: [Assets], assetType: AssetsType) -> [Assets] {
+    var out: [Assets] = []
+    for asset in assets {
+        if asset.type == assetType {
+            out.append(asset)
+        }
+    }
+    return out 
 }
 
 

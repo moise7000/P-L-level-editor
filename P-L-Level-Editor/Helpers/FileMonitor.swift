@@ -60,14 +60,22 @@ class FileMonitor: ObservableObject {
 }
 
 
-class AssetsFileMonitor: ObservableObject{
+class AssetsFileMonitorSingleton {
+    static let shared = AssetsFileMonitorSingleton()
+    
+    
     @AppStorage("selectedDirectory") var selectedDirectory: String = ""
     
     
     @Published var files: [URL] = []
-    @Published var EntitiesFiles: [URL] = []
-    @Published var StructuresFiles: [URL] = []
-    @Published var BackgroundFiles: [URL] = []
+    private var assets: [Assets] = []
+   
+    func updateDirectory(newDirectory: String) -> Void {
+        self.selectedDirectory = newDirectory
+    }
+    
+    
+    
     
     private func loadFiles() -> Void {
         guard !selectedDirectory.isEmpty, let url = URL(string: selectedDirectory) else { return }
@@ -91,47 +99,45 @@ class AssetsFileMonitor: ObservableObject{
         }
     }
     
-    
-    func printFiles(){
-        print("All files : \(files)")
-        
-    }
-    
-    
-    func loadEntities() -> Void {
-        for file in self.files {
-            if isStringContaintsSubString(fromUrlToString(from: file), "assets/entities") {
-                self.EntitiesFiles.append(file)
-            }
-        }
-                
-    }
-    
-    func loadStrucutres() -> Void {
-        for file in self.files {
-            if isStringContaintsSubString(fromUrlToString(from: file), "assets/structures") {
-                self.StructuresFiles.append(file)
-            }
-        }
-                
-    }
-    
-    func loadBackground() -> Void {
-        for file in self.files {
-            if isStringContaintsSubString(fromUrlToString(from: file), "assets/background") {
-                self.BackgroundFiles.append(file)
-            }
-        }
-                
-    }
-
-    func loadAssets() -> Void{
+    private func transformFilesIntoAssets() -> [Assets] {
         self.loadFiles()
-        self.loadEntities()
-        self.loadStrucutres()
-        self.loadBackground()
+        var assets: [Assets] = []
+        for file in files {
+            let urlString = fromUrlToString(from: file)
+            if let type = getTypeFromString(from: urlString) {
+       
+                if let imageName = getImageNameFromUrlString(from: urlString) {
+                    let newAsset = Assets(id: imageName, type: type, image: imageName, url: file)
+                   
+                    self.assets.append(newAsset)
+                } else {
+                    print("[!] ERROR : Impossible to get the imageName of this file : \(file)")
+                }
+            } else {
+                print("[!] ERROR : Impossible to get the type of this file : \(file)")
+            }
+            
+        }
+        
+        
+        return assets
     }
-     
+    
+    func getAssets() -> [Assets] {
+        return self.assets
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
 

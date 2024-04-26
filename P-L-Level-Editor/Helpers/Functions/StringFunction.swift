@@ -38,6 +38,15 @@ func getAssetNameFromAssetBashPath(form path: String) -> String? {
     return components.last
 }
 
+func getImageNameFromUrlString(from urlString: String) -> String? {
+    let components = urlString.components(separatedBy: "/")
+    guard components.count > 1 else {
+        print("[!] ERROR : impossible to get imageName from url: \(urlString)")
+        return nil
+    }
+    return components.last
+}
+
 func makeIdentifierFromString(from entityName: String) -> String {
     return entityName + "_" + UUID().uuidString
 }

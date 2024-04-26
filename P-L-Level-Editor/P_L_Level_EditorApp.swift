@@ -32,8 +32,7 @@ struct levelEditorApp: App {
             ContentView()
                 .onAppear{
                     //Load all the asset if the userdefault exists
-                    assetsMonitor.loadAssets()
-                    assetsMonitor.printFiles()
+                    assetsMonitor.initMonitor()
                 }
         }
         .modelContainer(sharedModelContainer)
