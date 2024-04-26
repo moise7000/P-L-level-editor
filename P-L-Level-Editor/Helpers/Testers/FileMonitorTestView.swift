@@ -18,6 +18,10 @@ struct FileMonitorTestView: View {
                     if openPanel.runModal() == .OK {
                         selectedDirectory = openPanel.url!.path
                         loadImages()
+                        
+                        AssetsFileMonitorSingleton.shared.updateDirectory(newDirectory: selectedDirectory)
+                        AssetsFileMonitorSingleton.shared.refresh()
+                        
                     }
                 } label: {
                     VStack{

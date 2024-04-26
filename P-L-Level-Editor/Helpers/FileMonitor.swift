@@ -127,7 +127,14 @@ class AssetsFileMonitorSingleton {
         return self.assets
     }
     
+    func refresh() -> Void {
+        self.loadFiles()
+    }
     
+    func DEBUG() -> Void {
+        print("[DEBUG] Assets monitred : \(self.assets)")
+        print("[DEBUG] files monitred : \(self.files)")
+    }
     
     
     

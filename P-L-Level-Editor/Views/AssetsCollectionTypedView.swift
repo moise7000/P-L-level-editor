@@ -12,7 +12,7 @@ struct AssetsCollectionTypedView: View {
     
     var type: AssetsType
     
-    @ObservedObject var assetsMonitor = AssetsFileMonitor()
+    
     
     var body: some View {
         
@@ -24,7 +24,7 @@ struct AssetsCollectionTypedView: View {
                 ScrollView {
                     LazyVGrid(columns: gridLayout, spacing: 20) {
                         
-                        ForEach(getAssetsByType(assetsMonitor.getAssets(), assetType: type), id:\.self) { asset in
+                        ForEach(getAssetsByType(AssetsFileMonitorSingleton.shared.getAssets(), assetType: type), id:\.self) { asset in
                             
                                 
                                 
@@ -54,9 +54,7 @@ struct AssetsCollectionTypedView: View {
             }
             .navigationTitle("\(type)")
         }
-        .onAppear{
-            assetsMonitor.loadAssets()
-        }
+        
        
         
         

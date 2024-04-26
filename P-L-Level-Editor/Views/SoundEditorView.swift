@@ -180,6 +180,9 @@ struct SoundEditorView: View {
                             
             })
         }
+        .onAppear{
+            AssetsFileMonitorSingleton.shared.DEBUG()
+        }
         
         
     }

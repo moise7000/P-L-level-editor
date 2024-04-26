@@ -11,7 +11,7 @@ import SwiftData
 @main
 struct levelEditorApp: App {
     
-    @ObservedObject var assetsMonitor = AssetsFileMonitor()
+    
     
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
@@ -31,8 +31,8 @@ struct levelEditorApp: App {
             
             ContentView()
                 .onAppear{
-                    //Load all the asset if the userdefault exists
-                    assetsMonitor.initMonitor()
+                    AssetsFileMonitorSingleton.shared.refresh()
+                    AssetsFileMonitorSingleton.shared.DEBUG()
                 }
         }
         .modelContainer(sharedModelContainer)
