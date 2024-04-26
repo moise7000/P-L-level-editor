@@ -61,10 +61,41 @@ class FileMonitor: ObservableObject {
 
 
 class AssetsFileMonitor: ObservableObject{
+    @AppStorage("selectedDirectory") var selectedDirectory: String = ""
+    
+    
     @Published var files: [URL] = []
     @Published var EntitiesFiles: [URL] = []
     @Published var StrcuturesFiles: [URL] = []
     @Published var BackgroundFiles: [String] = []
+    
+    func loadImages() -> Void {
+        guard !selectedDirectory.isEmpty, let url = URL(string: selectedDirectory) else { return }
+        
+        let fileManager = FileManager.default
+        let enumerator = fileManager.enumerator(at: url, includingPropertiesForKeys: [.isRegularFileKey], options: [])
+        
+        files.removeAll()
+        
+        while let url = enumerator?.nextObject() as? URL {
+            do {
+                let resourceValues = try url.resourceValues(forKeys: [.isRegularFileKey])
+                if resourceValues.isRegularFile!, url.pathExtension == "png" {
+                    files.append(url)
+                    
+                    
+                }
+            } catch {
+                print("Erreur lors de la lecture des propriétés du fichier: \(error)")
+            }
+        }
+    }
+    
+    
+    func printFiles(){
+        print("All files : \(files)")
+        
+    }
     
 }
 

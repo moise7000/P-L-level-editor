@@ -5,7 +5,7 @@ import AppKit
 
 struct ContentView: View {
     
-    @State private var selectedView: String = "NewLevelView"
+    @State private var selectedView: String = "New Level"
     
     
     var body: some View {

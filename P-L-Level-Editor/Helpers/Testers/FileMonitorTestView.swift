@@ -2,7 +2,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 struct FileMonitorTestView: View {
-    @ObservedObject var assetsMonitor = AssetsFileMonitor()
+    
     @State private var images = [URL]()
     @AppStorage("selectedDirectory") var selectedDirectory: String = ""
     
@@ -78,7 +78,7 @@ struct FileMonitorTestView: View {
                 let resourceValues = try url.resourceValues(forKeys: [.isRegularFileKey])
                 if resourceValues.isRegularFile!, url.pathExtension == "png" {
                     images.append(url)
-                    assetsMonitor.files.append(url)
+                    
                     
                 }
             } catch {

@@ -10,6 +10,9 @@ import SwiftData
 
 @main
 struct levelEditorApp: App {
+    
+    @ObservedObject var assetsMonitor = AssetsFileMonitor()
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             SavedLevelsModel.self, AssetsDataModel.self
@@ -27,7 +30,13 @@ struct levelEditorApp: App {
         WindowGroup {
             
             ContentView()
+                .onAppear{
+                    //Load all the asset if the userdefault exists
+                    assetsMonitor.loadImages()
+                    assetsMonitor.printFiles()
+                }
         }
         .modelContainer(sharedModelContainer)
+        
     }
 }
