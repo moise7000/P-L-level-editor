@@ -6,25 +6,42 @@ struct FileMonitorTestView: View {
     @AppStorage("selectedDirectory") var selectedDirectory: String = ""
     
     var body: some View {
-        VStack {
-            Button("Choisir un dossier") {
-                let openPanel = NSOpenPanel()
-                openPanel.canChooseFiles = false
-                openPanel.canChooseDirectories = true
+        
+        NavigationStack{
+            VStack {
+                Button {
+                    let openPanel = NSOpenPanel()
+                    openPanel.canChooseFiles = false
+                    openPanel.canChooseDirectories = true
+                    
+                    if openPanel.runModal() == .OK {
+                        selectedDirectory = openPanel.url!.path
+                        loadImages()
+                    }
+                } label: {
+                    VStack{
+                        Text("Choose an Assets Folder")
+                        Text("Choose src !")
+                            .foregroundStyle(.pink)
+                            .font(.caption)
+                    }
+                   
+                    
+                    
+                }
                 
-                if openPanel.runModal() == .OK {
-                    selectedDirectory = openPanel.url!.path
-                    loadImages()
+                List(images, id: \.self) { url in
+                    Image(nsImage: NSImage(contentsOf: url)!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
                 }
             }
-            
-            List(images, id: \.self) { url in
-                Image(nsImage: NSImage(contentsOf: url)!)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            }
+            .onAppear(perform: loadImages)
+            .padding()
         }
-        .onAppear(perform: loadImages)
+        
+        
+       
     }
     
     func loadImages() {

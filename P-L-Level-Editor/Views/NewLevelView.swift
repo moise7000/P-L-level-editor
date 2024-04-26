@@ -42,7 +42,7 @@ struct NewLevelView: View {
     
     
     
-    @State private var zoomLevel: CGFloat = 4.0
+    @State private var zoomLevel: CGFloat = 3.0
     @State private var isErazerSelected: Bool = false
     @State private var lastRow: Int?
     @State private var lastColumn: Int?
