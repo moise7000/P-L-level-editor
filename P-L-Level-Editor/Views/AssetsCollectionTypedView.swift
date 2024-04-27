@@ -20,12 +20,19 @@ struct AssetsCollectionTypedView: View {
             GeometryReader { geometry in
                 let columns = Int(geometry.size.width / 100)
                 let gridLayout = Array(repeating: GridItem(.flexible()), count: columns)
-
+                let allAssets = AssetsFileMonitorSingleton.shared.getAssets()
+                
                 ScrollView {
                     LazyVGrid(columns: gridLayout, spacing: 20) {
                         
-                        ForEach(getAssetsByType(AssetsFileMonitorSingleton.shared.getAssets(), assetType: type), id:\.self) { asset in
-                            Image(nsImage: NSImage(contentsOf: asset.url!)!)
+                        ForEach(getAssetsByType(allAssets, assetType: type), id:\.self) { asset in
+                            VStack{
+                                Image(nsImage: NSImage(contentsOf: asset.url!)!)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                Text(asset.image)
+                            }
+                            
                         }
                         
                         
@@ -42,9 +49,10 @@ struct AssetsCollectionTypedView: View {
             }
             .navigationTitle("\(type)")
         }
-        .onAppear{
-            AssetsFileMonitorSingleton.shared.refresh()
-        }
+       
+        
+        
+        
         
        
         

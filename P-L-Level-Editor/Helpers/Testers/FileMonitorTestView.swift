@@ -21,6 +21,8 @@ struct FileMonitorTestView: View {
                         
                         AssetsFileMonitorSingleton.shared.updateDirectory(newDirectory: selectedDirectory)
                         AssetsFileMonitorSingleton.shared.refresh()
+                        print("Asets Monitor files : \(AssetsFileMonitorSingleton.shared.files)")
+                        print("AssetsMonitor Files : \(AssetsFileMonitorSingleton.shared.getAssets())")
                         
                     }
                 } label: {
@@ -89,6 +91,9 @@ struct FileMonitorTestView: View {
                 print("Erreur lors de la lecture des propriétés du fichier: \(error)")
             }
         }
+        print(images)
     }
+    
+    
 }
 
