@@ -100,7 +100,7 @@ struct NewLevelView: View {
     @State private var rotation: Double = 0
     
     var body: some View {
-        
+        let allAssets = AssetsFileMonitorSingleton.shared.getAssets()
         
         
         HStack{
@@ -130,13 +130,15 @@ struct NewLevelView: View {
                         Text("Backround")
                     }
                 }
+                
             
                 if showingEntity{
                     ScrollView{
                         VStack{
-                            ForEach(entityAssets, id: \.self) { entityAsset in
-                                Image(entityAsset.image)
-                                    .scaleEffect(1.25)
+                            ForEach(getAssetsByType(allAssets, assetType: AssetsType.ENTITY), id: \.self) { entityAsset in
+                                Image(nsImage: NSImage(contentsOf: entityAsset.url!)!)
+                                    .resizable()
+                                    .frame(width: 32, height: 32)
                                     .padding()
                                     .onTapGesture {
                                         isErazerSelected = false
@@ -145,6 +147,7 @@ struct NewLevelView: View {
                                         
                                     }
                             }
+                            
                         }
                     }
                 }
@@ -152,9 +155,10 @@ struct NewLevelView: View {
                 if showingStructure{
                     ScrollView{
                         VStack{
-                            ForEach(structureAssets, id: \.self) { structureAsset in
-                                Image(structureAsset.image)
-                                    .scaleEffect(1.5)
+                            ForEach(getAssetsByType(allAssets, assetType: AssetsType.STRUCTURE), id: \.self) { structureAsset in
+                                Image(nsImage: NSImage(contentsOf: structureAsset.url!)!)
+                                    .resizable()
+                                    .frame(width: 32, height: 32)
                                     .padding()
                                     .onTapGesture {
                                         isErazerSelected = false
@@ -193,13 +197,15 @@ struct NewLevelView: View {
             VStack{
                 HStack{
                     HStack{
-                        if selectedAsset != nil {
+                        if selectedAsset != nil && selectedAsset!.url != nil{
                             HStack{
                                 Text("Selected image : ")
-                                Image(selectedAsset!.image)
-                                    .scaleEffect(2)
+                                Image(nsImage: NSImage(contentsOf: selectedAsset!.url!)!)
+                                    .resizable()
+                                    .frame(width: 32,height: 32)
                                     .onTapGesture {
                                         showSelectedImageZOOM = true
+                                        print("OnPressed")
                                     }
                                     .onHover { hovering in
                                                     if hovering {
@@ -210,9 +216,10 @@ struct NewLevelView: View {
                                                 }
                                     .popover(isPresented: $showSelectedImageZOOM){
                                         HStack{
-                                            Image(selectedAsset!.image)
+                                            Image(nsImage: NSImage(contentsOf: selectedAsset!.url!)!)
                                                 .resizable()
                                                 .scaledToFit()
+                                                .frame(width: 300,height: 300)
                                         }
                                         .frame(width: 400, height: 400)
                                     }
