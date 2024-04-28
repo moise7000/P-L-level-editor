@@ -7,31 +7,6 @@
 
 import Foundation
 
-
-enum AssetsType: Codable, CaseIterable {
-    case STRUCTURE
-    case ENTITY
-    case BACKGROUND
-    case TELEPORTER
-}
-
-
-func getTypeFromString(from string:String) -> AssetsType? {
-    if string == "entities" {
-        return AssetsType.ENTITY
-    }
-    if string == "structures" {
-        return AssetsType.STRUCTURE
-    }
-    if string == "background" {
-        return AssetsType.BACKGROUND
-    }
-    return nil
-}
-
-
-
-
 struct Assets : Hashable, Codable {
     var id: String
     var type: AssetsType
