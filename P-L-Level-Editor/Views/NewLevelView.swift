@@ -297,9 +297,13 @@ struct NewLevelView: View {
                                                     
                                                     if isImageSizeValid(grid.images[row][column]!){
                                                         Image(nsImage: NSImage(contentsOf: grid.images[row][column]!)!)
+                                                            .resizable()
+                                                            .aspectRatio(contentMode: .fit)
                                                         
                                                     } else {
                                                         Image(nsImage: NSImage(contentsOf: grid.images[row][column]!)!)
+                                                            .resizable()
+                                                            .aspectRatio(contentMode: .fit)
                                                             .offset(y: getInvalidImageOffset(grid.images[row][column]!) ?? 0)
                                                     }
                                                     
