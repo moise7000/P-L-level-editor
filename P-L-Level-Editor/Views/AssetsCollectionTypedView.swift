@@ -29,6 +29,7 @@ struct AssetsCollectionTypedView: View {
                             VStack{
                                 Image(nsImage: NSImage(contentsOf: asset.url!)!)
                                     .resizable()
+                                    .interpolation(.none)
                                     .aspectRatio(contentMode: .fit)
                                 Text(asset.image)
                             }

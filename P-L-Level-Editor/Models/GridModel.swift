@@ -79,6 +79,10 @@ class LevelGridForItem : Codable {
         return self.get(row, column).assets!.image
     }
     
+    func getImageUrl(_ row: Int, _ column: Int) -> URL {
+        return self.get(row, column).assets!.url!
+    }
+    
     func getAsset(_ row: Int, _ column: Int) -> Assets? {
         return self.get(row, column).assets
     }

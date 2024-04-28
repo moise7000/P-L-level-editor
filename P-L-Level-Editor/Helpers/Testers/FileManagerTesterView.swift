@@ -19,6 +19,7 @@ struct FileManagerTesterView: View {
                         ForEach(images.indices, id: \.self) { index in
                             Image(nsImage: self.images[index])
                                 .resizable()
+                                .interpolation(.none)
                                 .scaledToFit()
                         }
 

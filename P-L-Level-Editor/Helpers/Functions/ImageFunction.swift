@@ -8,12 +8,34 @@
 import Foundation
 import SwiftUI
 
-func isImageSizeValid(_ imageUrl: URL) -> Bool {
-    if let image = NSImage(contentsOf: imageUrl) {
-        return  image.size.height == 16 && image.size.width == 16
-    } else {
-        return false
+
+func getSize(_ imageUrl: URL) -> (CGFloat, CGFloat) {
+    if let image = NSImage(contentsOf: imageUrl),
+       let rep = image.representations.first {
+        return (CGFloat(rep.pixelsWide), CGFloat(rep.pixelsHigh))
     }
+    return (-1, -1)
+}
+
+
+func getImageSize(_ imageUrl: URL) -> (CGFloat, CGFloat)? {
+    if let image = NSImage(contentsOf: imageUrl),
+       let rep = image.representations.first,
+       rep.pixelsWide > 16 || rep.pixelsHigh > 16 {
+        return (CGFloat(rep.pixelsWide), CGFloat(rep.pixelsHigh))
+    }
+    return nil
+}
+
+
+func isImageSizeValid(_ imageUrl: URL) -> Bool {
+    if let image = NSImage(contentsOf: imageUrl),
+       let rep = image.representations.first {
+        return (CGFloat(rep.pixelsWide), CGFloat(rep.pixelsHigh)) == (16,16)
+    }
+    
+    return false
+
 
 }
 
@@ -29,9 +51,3 @@ func getInvalidImageOffset(_ imageUrl: URL) -> CGFloat?  {
     }
 }
 
-func getSize(_ imageUrl: URL) -> (CGFloat, CGFloat) {
-    if let image = NSImage(contentsOf: imageUrl) {
-        return  (image.size.width, image.size.height)
-    }
-    return (-1,-1)
-}

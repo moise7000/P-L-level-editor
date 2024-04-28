@@ -138,6 +138,7 @@ struct NewLevelView: View {
                             ForEach(getAssetsByType(allAssets, assetType: AssetsType.ENTITY), id: \.self) { entityAsset in
                                 Image(nsImage: NSImage(contentsOf: entityAsset.url!)!)
                                     .resizable()
+                                    .interpolation(.none)
                                     .frame(width: 32, height: 32)
                                     .padding()
                                     .onTapGesture {
@@ -158,6 +159,7 @@ struct NewLevelView: View {
                             ForEach(getAssetsByType(allAssets, assetType: AssetsType.STRUCTURE), id: \.self) { structureAsset in
                                 Image(nsImage: NSImage(contentsOf: structureAsset.url!)!)
                                     .resizable()
+                                    .interpolation(.none)
                                     .frame(width: 32, height: 32)
                                     .padding()
                                     .onTapGesture {
@@ -202,6 +204,7 @@ struct NewLevelView: View {
                                 Text("Selected image : ")
                                 Image(nsImage: NSImage(contentsOf: selectedAsset!.url!)!)
                                     .resizable()
+                                    .interpolation(.none)
                                     .frame(width: 32,height: 32)
                                     .onTapGesture {
                                         showSelectedImageZOOM = true
@@ -217,6 +220,7 @@ struct NewLevelView: View {
                                         HStack{
                                             Image(nsImage: NSImage(contentsOf: selectedAsset!.url!)!)
                                                 .resizable()
+                                                .interpolation(.none)
                                                 .scaledToFit()
                                                 .frame(width: 300,height: 300)
                                         }
@@ -298,12 +302,18 @@ struct NewLevelView: View {
                                                     if isImageSizeValid(grid.images[row][column]!){
                                                         Image(nsImage: NSImage(contentsOf: grid.images[row][column]!)!)
                                                             .resizable()
-                                                            .aspectRatio(contentMode: .fit)
+                                                            .interpolation(.none)
+                                                            .aspectRatio(contentMode: .fill)
                                                         
-                                                    } else {
+                                                    }
+                                                    else {
+                                                        let imageSize =  getSize(grid.images[row][column]!)
                                                         Image(nsImage: NSImage(contentsOf: grid.images[row][column]!)!)
-                                                            .resizable()
-                                                            .aspectRatio(contentMode: .fit)
+                                                             
+                                                            
+                                                            
+                                                            .interpolation(.none)
+                                                            
                                                             .offset(y: getInvalidImageOffset(grid.images[row][column]!) ?? 0)
                                                     }
                                                     
@@ -350,7 +360,7 @@ struct NewLevelView: View {
                                                     print("[DEBUG] is level empty ? : \(dataGrid.isEmpty())")
                                                     print(aptData[row][column])
                                                     print(dataGrid.gridItems[row][column])
-                                                    
+                                                    print(isImageSizeValid(grid.images[row][column]!))
                                                 } label:{
                                                     Text("DEBUG")
                                                 }

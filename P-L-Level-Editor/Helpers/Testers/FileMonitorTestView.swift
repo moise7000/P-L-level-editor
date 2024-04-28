@@ -10,33 +10,42 @@ struct FileMonitorTestView: View {
         
         NavigationStack{
             VStack {
-                Button {
-                    let openPanel = NSOpenPanel()
-                    openPanel.canChooseFiles = false
-                    openPanel.canChooseDirectories = true
+                HStack{
+                    Text("Current Assets selected folder : ")
+                    Text("\(selectedDirectory)")
+                        .foregroundStyle(.pink)
                     
-                    if openPanel.runModal() == .OK {
-                        selectedDirectory = openPanel.url!.path
-                        loadImages()
+                    Spacer()
+                    Button {
+                        let openPanel = NSOpenPanel()
+                        openPanel.canChooseFiles = false
+                        openPanel.canChooseDirectories = true
                         
-                        AssetsFileMonitorSingleton.shared.updateDirectory(newDirectory: selectedDirectory)
-                        AssetsFileMonitorSingleton.shared.refresh()
-                        print("Asets Monitor files : \(AssetsFileMonitorSingleton.shared.files)")
-                        print("AssetsMonitor Files : \(AssetsFileMonitorSingleton.shared.getAssets())")
+                        if openPanel.runModal() == .OK {
+                            selectedDirectory = openPanel.url!.path
+                            loadImages()
+                            
+                            AssetsFileMonitorSingleton.shared.updateDirectory(newDirectory: selectedDirectory)
+                            AssetsFileMonitorSingleton.shared.refresh()
+                            
+                        }
+                    } label: {
+                        VStack{
+                            Text("Choose an Assets Folder")
+                            
+                            Text("Choose src !")
+                                .foregroundStyle(.pink)
+                                .font(.caption)
+                        }
+                        .padding()
+                       
+                        
                         
                     }
-                } label: {
-                    VStack{
-                        Text("Choose an Assets Folder")
-                        Text("Choose src !")
-                            .foregroundStyle(.pink)
-                            .font(.caption)
-                    }
-                   
-                    
-                    
+                    .padding()
                 }
-                .padding()
+                
+               
                 
                 
                 GeometryReader { geometry in
@@ -49,6 +58,7 @@ struct FileMonitorTestView: View {
                             ForEach(images, id:\.self) { url in
                                 Image(nsImage: NSImage(contentsOf: url)!)
                                     .resizable()
+                                    .interpolation(.none)
                                     .aspectRatio(contentMode: .fit)
                                     
                                     

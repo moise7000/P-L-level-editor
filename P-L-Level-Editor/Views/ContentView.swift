@@ -13,13 +13,19 @@ struct ContentView: View {
         let stringViews = ["New Level",
                            "Edit Level",
                            "SoundEditorView",
-                           "Assets",
-                           "FileManagerTesterView",
-                           "FileMonitorTestView"]
+                           "Assets Collection",
+                           "Source Assets Folder"]
         
         NavigationSplitView {
             List(stringViews, id: \.self, selection: $selectedView) { view in
-                Text(view)
+                HStack{
+                    Text(view)
+                    if view == "Source Assets Folder" && (AssetsFileMonitorSingleton.shared.isAssetsMonitoredEmpty() || AssetsFileMonitorSingleton.shared.isFilesMonitoredEmpty()) {
+                        Spacer()
+                        NotificationBadgeView()
+                    }
+                }
+                
             }
         } detail: {
             if selectedView == "New Level" {
@@ -30,16 +36,13 @@ struct ContentView: View {
             if selectedView == "Edit Level" {
                 PlaygroundView()
             }
-            if selectedView == "Assets" {
+            if selectedView == "Assets Collection" {
                 AssetsCollectionView()
             }
             if selectedView == "SoundEditorView" {
                 SoundEditorView()
             }
-            if selectedView == "FileManagerTesterView" {
-                FileManagerTesterView()
-            }
-            if selectedView == "FileMonitorTestView" {
+            if selectedView == "Source Assets Folder" {
                 FileMonitorTestView()
             }
 

@@ -139,7 +139,22 @@ class AssetsFileMonitorSingleton {
     }
     
     
+    func isSelectedDirectory() -> Bool {
+        return self.selectedDirectory != ""
+    }
     
+    func getDirectory() -> String {
+        return self.selectedDirectory
+    }
+    
+    
+    func isFilesMonitoredEmpty() -> Bool {
+        return self.files == []
+    }
+    
+    func isAssetsMonitoredEmpty() -> Bool {
+        return self.assets == []
+    }
     
     
     
