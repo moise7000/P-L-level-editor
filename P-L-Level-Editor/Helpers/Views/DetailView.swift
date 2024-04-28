@@ -41,7 +41,7 @@ struct DetailView: View {
                     }
                     
                     HStack{
-                        Text("Size : \(getSize(dataGrid.getImageName(row, column))) ")
+                        //Text("Size : \(getSize(dataGrid.getImageName(row, column))) ")
                         Spacer()
                     }
                 }

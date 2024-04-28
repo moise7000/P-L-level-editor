@@ -23,7 +23,7 @@ struct EditLevelView: View {
     let structureAssets = affectAssetsType(imageNames: STRUCTURE_NAMES , type: AssetsType.STRUCTURE)
     let entityAssets = affectAssetsType(imageNames: ENTITY_NAMES, type: AssetsType.ENTITY)
     let backgroundAssets = affectAssetsType(imageNames: BACKGROUND_NAMES, type: AssetsType.BACKGROUND)
-    @State private var selectedImage: String?
+    @State private var selectedImage: URL?
     @State private var selectedBackground: String?
     @State private var selectedAsset: Assets?
     
@@ -118,7 +118,7 @@ struct EditLevelView: View {
                                     .onTapGesture {
                                         isErazerSelected = false
                                         self.selectedAsset = entityAsset
-                                        self.selectedImage = entityAsset.image
+                                        self.selectedImage = entityAsset.url
                                         
                                     }
                             }
@@ -139,7 +139,7 @@ struct EditLevelView: View {
                                     .onTapGesture {
                                         isErazerSelected = false
                                         self.selectedAsset = structureAsset
-                                        self.selectedImage = structureAsset.image
+                                        self.selectedImage = structureAsset.url
                                         
                                     }
                             }
@@ -302,13 +302,13 @@ struct EditLevelView: View {
                                             
                                             .overlay {
                                                 // display image if image exists
-                                                if grid.images[row][column] != "" && grid.images[row][column] != nil{
+                                                if grid.images[row][column] != nil {
                                                     
                                                     if isImageSizeValid(grid.images[row][column]!){
-                                                        Image(grid.images[row][column]!)
+                                                        Image(nsImage: NSImage(contentsOf: grid.images[row][column]!)!)
                                                         
                                                     } else {
-                                                        Image(grid.images[row][column]!)
+                                                        Image(nsImage: NSImage(contentsOf: grid.images[row][column]!)!)
                                                             .offset(y: -8)
                                                     }
                                                     
@@ -329,7 +329,7 @@ struct EditLevelView: View {
                                                 if isErazerSelected {
                                                     // Delete the image from the grid
                                                     selectedImage = nil
-                                                    grid.images[row][column] = ""
+                                                    grid.images[row][column] = nil
                                                     
                                                     // Delete the image from the dataGrid
                                                     selectedAsset = nil
@@ -361,7 +361,7 @@ struct EditLevelView: View {
                                                 }
 
                                                 
-                                                if grid.images[row][column] != "" && grid.images[row][column] != nil {
+                                                if grid.images[row][column] != nil {
                                                     Button{
                                                         selectedAsset = nil
                                                         selectedImage = nil
@@ -374,7 +374,7 @@ struct EditLevelView: View {
                                                     Text("Show collisions")
                                                 }
 
-                                                if grid.images[row][column] != "" && grid.images[row][column] != nil {
+                                                if grid.images[row][column] != nil {
                                                     Button{
                                                         showEditAPTPopover[row][column] = true
                                                     } label:{
@@ -384,7 +384,7 @@ struct EditLevelView: View {
                                                     Text("Edit colissions")
                                                 }
                                                 
-                                                if grid.images[row][column] != "" && grid.images[row][column] != nil{
+                                                if grid.images[row][column] != nil{
                                                     Button{
                                                         showTeleporterPopover[row][column] = true
                                                     } label:{

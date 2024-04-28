@@ -299,7 +299,7 @@ struct NewLevelView: View {
                                                         Image(nsImage: NSImage(contentsOf: grid.images[row][column]!)!)
                                                         
                                                     } else {
-                                                        Image(grid.images[row][column]!)
+                                                        Image(nsImage: NSImage(contentsOf: grid.images[row][column]!)!)
                                                             .offset(y: getInvalidImageOffset(grid.images[row][column]!) ?? 0)
                                                     }
                                                     
@@ -323,7 +323,7 @@ struct NewLevelView: View {
                                                 if isErazerSelected {
                                                     // Delete the image from the grid
                                                     selectedImage = nil
-                                                    grid.images[row][column] = ""
+                                                    grid.images[row][column] = nil
                                                     
                                                     // Delete the image from the dataGrid
                                                     selectedAsset = nil
@@ -363,7 +363,7 @@ struct NewLevelView: View {
                                                 }
 
                                                 
-                                                if grid.images[row][column] != "" && grid.images[row][column] != nil {
+                                                if grid.images[row][column] != nil {
                                                     Button{
                                                         selectedAsset = nil
                                                         selectedImage = nil
@@ -376,7 +376,7 @@ struct NewLevelView: View {
                                                     Text("Show collisions")
                                                 }
 
-                                                if grid.images[row][column] != "" && grid.images[row][column] != nil {
+                                                if grid.images[row][column] != nil {
                                                     Button{
                                                         showEditAPTPopover[row][column] = true
                                                     } label:{
@@ -386,7 +386,7 @@ struct NewLevelView: View {
                                                     Text("Edit colissions")
                                                 }
                                                 
-                                                if grid.images[row][column] != "" && grid.images[row][column] != nil{
+                                                if grid.images[row][column] != nil{
                                                     Button{
                                                         showTeleporterPopover[row][column] = true
                                                     } label:{
