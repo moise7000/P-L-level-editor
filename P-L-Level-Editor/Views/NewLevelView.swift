@@ -30,9 +30,9 @@ struct NewLevelView: View {
     let backgroundAssets = affectAssetsType(imageNames: BACKGROUND_NAMES, type: AssetsType.BACKGROUND)
    
     
-    @State private var grid: LevelGrid = createGrid(rows: 8, columns: 16)
-    @State private var selectedImage: String?
-    @State private var selectedBackground: String?
+    @State private var grid: LevelGrid = createGrid(rows: 8, columns: 16)                       //Grid = This grid contains the URL of all the level Images
+    @State private var selectedImage: URL?
+    @State private var selectedBackground: String?                                              //Must nbe URL?
     @State private var currentLevelName: String = ""
     
     
@@ -143,7 +143,7 @@ struct NewLevelView: View {
                                     .onTapGesture {
                                         isErazerSelected = false
                                         self.selectedAsset = entityAsset
-                                        self.selectedImage = entityAsset.image
+                                        self.selectedImage = entityAsset.url
                                         
                                     }
                             }
@@ -163,7 +163,7 @@ struct NewLevelView: View {
                                     .onTapGesture {
                                         isErazerSelected = false
                                         self.selectedAsset = structureAsset
-                                        self.selectedImage = structureAsset.image
+                                        self.selectedImage = structureAsset.url
                                         
                                     }
                             }
@@ -205,7 +205,6 @@ struct NewLevelView: View {
                                     .frame(width: 32,height: 32)
                                     .onTapGesture {
                                         showSelectedImageZOOM = true
-                                        print("OnPressed")
                                     }
                                     .onHover { hovering in
                                                     if hovering {
@@ -294,10 +293,10 @@ struct NewLevelView: View {
                                             
                                             .overlay {
                                                 // display image if image exists
-                                                if grid.images[row][column] != "" && grid.images[row][column] != nil{
+                                                if grid.images[row][column] != nil{
                                                     
                                                     if isImageSizeValid(grid.images[row][column]!){
-                                                        Image(grid.images[row][column]!)
+                                                        Image(nsImage: NSImage(contentsOf: grid.images[row][column]!)!)
                                                         
                                                     } else {
                                                         Image(grid.images[row][column]!)

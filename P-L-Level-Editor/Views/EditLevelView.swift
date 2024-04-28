@@ -75,6 +75,7 @@ struct EditLevelView: View {
     
     
     var body: some View {
+        let allAssets = AssetsFileMonitorSingleton.shared.getAssets()
         HStack{
             VStack{
                 HStack{
@@ -109,9 +110,10 @@ struct EditLevelView: View {
                 if showingEntity{
                     ScrollView{
                         VStack{
-                            ForEach(entityAssets, id: \.self) { entityAsset in
-                                Image(entityAsset.image)
-                                    .scaleEffect(1.25)
+                            ForEach(getAssetsByType(allAssets, assetType: AssetsType.ENTITY), id: \.self) { entityAsset in
+                                Image(nsImage: NSImage(contentsOf: entityAsset.url!)!)
+                                    .resizable()
+                                    .frame(width: 32, height: 32)
                                     .padding()
                                     .onTapGesture {
                                         isErazerSelected = false
@@ -129,9 +131,10 @@ struct EditLevelView: View {
                 if showingStructure{
                     ScrollView{
                         VStack{
-                            ForEach(structureAssets, id: \.self) { structureAsset in
-                                Image(structureAsset.image)
-                                    .scaleEffect(1.25)
+                            ForEach(getAssetsByType(allAssets, assetType: AssetsType.STRUCTURE), id: \.self) { structureAsset in
+                                Image(nsImage: NSImage(contentsOf: structureAsset.url!)!)
+                                    .resizable()
+                                    .frame(width: 32, height: 32)
                                     .padding()
                                     .onTapGesture {
                                         isErazerSelected = false
@@ -208,7 +211,9 @@ struct EditLevelView: View {
                             if selectedAsset != nil {
                                 HStack{
                                     Text("Selected image : ")
-                                    Image(selectedAsset!.image)
+                                    Image(nsImage: NSImage(contentsOf: selectedAsset!.url!)!)
+                                        .resizable()
+                                        .frame(width: 32,height: 32)
                                         .onTapGesture {
                                             showSelectedImageZOOM = true
                                         }
@@ -221,7 +226,7 @@ struct EditLevelView: View {
                                         }
                                         .popover(isPresented: $showSelectedImageZOOM){
                                             HStack{
-                                                Image(selectedAsset!.image)
+                                                Image(nsImage: NSImage(contentsOf: selectedAsset!.url!)!)
                                                     .resizable()
                                                     .scaledToFit()
                                             }

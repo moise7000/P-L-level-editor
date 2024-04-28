@@ -13,7 +13,7 @@ import SwiftData
 struct LevelGrid {
     var rows: Int
     var columns: Int
-    var images: [[String?]]
+    var images: [[URL?]]
     
 }
 
@@ -299,11 +299,11 @@ func showSavePanel() -> URL? {
 
 
 func createGrid(rows: Int, columns: Int) -> LevelGrid {
-    var images = [[String?]]()
+    var images = [[URL?]]()
     for _ in 0..<rows {
-        var box: [String] = []
+        var box: [URL?] = []
             for _ in 0..<columns {
-                box.append("")
+                box.append(nil)
             }
             images.append(box)
         }

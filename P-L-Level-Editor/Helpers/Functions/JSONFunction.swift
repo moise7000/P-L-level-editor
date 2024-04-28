@@ -326,7 +326,7 @@ func imageNamesGridFromJSON(from json: [String: Any]) -> LevelGrid? {
                     if let (x, y) = getJSONValueCoordinate(jsonStructure: structureDictionary) {
                         if let imageName = getImageNameFromJSONStrucutreDictionary(structureDictionary) {
                             //Add image to grid with coordinates
-                            grid.images[y][x] = imageName
+                            grid.images[y][x] = fromStringToUrl(from: imageName)!
                         } else {
                             print("[!] ERROR : Cannot imageName from getImageNameFromJSONDictionary.")
                             return nil
@@ -349,7 +349,7 @@ func imageNamesGridFromJSON(from json: [String: Any]) -> LevelGrid? {
                 for entityDictionary in entitiesArrayDictionary {
                     if let (x, y) = getJSONValueCoordinate(jsonStructure: entityDictionary) {
                         if let imageName = getImageNameFromJSONEntityDictionary(entityDictionary){
-                            grid.images[y][x] = imageName
+                            grid.images[y][x] = fromStringToUrl(from: imageName)!
                         } else {
                             print("[!] ERROR : Cannot imageName from getImageNameFromJSONDictionary.")
                             return nil
