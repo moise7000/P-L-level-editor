@@ -136,17 +136,21 @@ struct NewLevelView: View {
                     ScrollView{
                         VStack{
                             ForEach(getAssetsByType(allAssets, assetType: AssetsType.ENTITY), id: \.self) { entityAsset in
-                                Image(nsImage: NSImage(contentsOf: entityAsset.url!)!)
-                                    .resizable()
-                                    .interpolation(.none)
-                                    .frame(width: 32, height: 32)
-                                    .padding()
-                                    .onTapGesture {
-                                        isErazerSelected = false
-                                        self.selectedAsset = entityAsset
-                                        self.selectedImage = entityAsset.url
-                                        
-                                    }
+                                if NSImage(contentsOf: entityAsset.url!) != nil {
+                                    Image(nsImage: NSImage(contentsOf: entityAsset.url!)!)
+                                        .resizable()
+                                        .interpolation(.none)
+                                        .frame(width: 32, height: 32)
+                                        .padding()
+                                        .onTapGesture {
+                                            isErazerSelected = false
+                                            self.selectedAsset = entityAsset
+                                            self.selectedImage = entityAsset.url
+                                            
+                                        }
+                                }
+                                
+                                
                             }
                             
                         }
@@ -157,17 +161,20 @@ struct NewLevelView: View {
                     ScrollView{
                         VStack{
                             ForEach(getAssetsByType(allAssets, assetType: AssetsType.STRUCTURE), id: \.self) { structureAsset in
-                                Image(nsImage: NSImage(contentsOf: structureAsset.url!)!)
-                                    .resizable()
-                                    .interpolation(.none)
-                                    .frame(width: 32, height: 32)
-                                    .padding()
-                                    .onTapGesture {
-                                        isErazerSelected = false
-                                        self.selectedAsset = structureAsset
-                                        self.selectedImage = structureAsset.url
-                                        
-                                    }
+                                if NSImage(contentsOf: structureAsset.url!) != nil {
+                                    Image(nsImage: NSImage(contentsOf: structureAsset.url!)!)
+                                        .resizable()
+                                        .interpolation(.none)
+                                        .frame(width: 32, height: 32)
+                                        .padding()
+                                        .onTapGesture {
+                                            isErazerSelected = false
+                                            self.selectedAsset = structureAsset
+                                            self.selectedImage = structureAsset.url
+                                            
+                                        }
+                                }
+                                
                             }
                         }
                     }
@@ -177,17 +184,20 @@ struct NewLevelView: View {
                     ScrollView{
                         VStack{
                             ForEach(getAssetsByType(allAssets, assetType: AssetsType.BACKGROUND), id: \.self) { background in
-                                Image(nsImage: NSImage(contentsOf: background.url!)!)
-                                    .resizable()
-                                    .interpolation(.none)
-                                    .scaleEffect(1.25)
-                                    .padding()
-                                    .onTapGesture {
-                                        isErazerSelected = false
-                                        self.selectedBackground = background
-                                        dataGrid.background = background.url
-                                        
-                                    }
+                                if NSImage(contentsOf: background.url!) != nil {
+                                    Image(nsImage: NSImage(contentsOf: background.url!)!)
+                                        .resizable()
+                                        .interpolation(.none)
+                                        .frame(width: 128, height: 64)
+                                        .padding()
+                                        .onTapGesture {
+                                            isErazerSelected = false
+                                            self.selectedBackground = background
+                                            dataGrid.background = background.url
+                                            
+                                        }
+                                }
+                                
                             }
                         }
                     }
@@ -201,7 +211,7 @@ struct NewLevelView: View {
             VStack{
                 HStack{
                     HStack{
-                        if selectedAsset != nil && selectedAsset!.url != nil{
+                        if selectedAsset != nil && selectedAsset!.url != nil && NSImage(contentsOf: selectedAsset!.url!) != nil{
                             HStack{
                                 Text("Selected image : ")
                                 Image(nsImage: NSImage(contentsOf: selectedAsset!.url!)!)
@@ -247,7 +257,7 @@ struct NewLevelView: View {
                         }
 
                         
-                        if selectedBackground != nil {
+                        if selectedBackground != nil && NSImage(contentsOf: selectedBackground!.url!) != nil {
                             HStack{
                                 Text("Current background : ")
                                 Image(nsImage: NSImage(contentsOf: selectedBackground!.url!)!)
@@ -282,7 +292,7 @@ struct NewLevelView: View {
                             .border(Color.pink)
                         
                             .overlay {
-                                if selectedBackground != nil {
+                                if selectedBackground != nil && NSImage(contentsOf: selectedBackground!.url!) != nil {
                                     Image(nsImage: NSImage(contentsOf: selectedBackground!.url!)!)
                                         .interpolation(.none)
                                 }
@@ -304,7 +314,7 @@ struct NewLevelView: View {
                                                 // display image if image exists
                                                 if grid.images[row][column] != nil{
                                                     
-                                                    if isImageSizeValid(grid.images[row][column]!){
+                                                    if isImageSizeValid(grid.images[row][column]!) && NSImage(contentsOf: grid.images[row][column]!) != nil{
                                                         Image(nsImage: NSImage(contentsOf: grid.images[row][column]!)!)
                                                             .resizable()
                                                             .interpolation(.none)

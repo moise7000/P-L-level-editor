@@ -12,7 +12,7 @@ struct ContentView: View {
         
         let stringViews = ["New Level",
                            "Edit Level",
-                           "SoundEditorView",
+                           "Sounds",
                            "Assets Collection",
                            "Source Assets Folder"]
         
@@ -39,7 +39,7 @@ struct ContentView: View {
             if selectedView == "Assets Collection" {
                 AssetsCollectionView()
             }
-            if selectedView == "SoundEditorView" {
+            if selectedView == "Sounds" {
                 SoundEditorView()
             }
             if selectedView == "Source Assets Folder" {

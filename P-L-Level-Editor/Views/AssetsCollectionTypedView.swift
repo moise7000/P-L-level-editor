@@ -27,11 +27,14 @@ struct AssetsCollectionTypedView: View {
                         
                         ForEach(getAssetsByType(allAssets, assetType: type), id:\.self) { asset in
                             VStack{
-                                Image(nsImage: NSImage(contentsOf: asset.url!)!)
-                                    .resizable()
-                                    .interpolation(.none)
-                                    .aspectRatio(contentMode: .fit)
-                                Text(asset.image)
+                                if NSImage(contentsOf: asset.url!) != nil {
+                                    Image(nsImage: NSImage(contentsOf: asset.url!)!)
+                                        .resizable()
+                                        .interpolation(.none)
+                                        .aspectRatio(contentMode: .fit)
+                                    Text(asset.image)
+                                }
+                                
                             }
                             
                         }
