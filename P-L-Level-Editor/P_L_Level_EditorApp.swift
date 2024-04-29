@@ -15,7 +15,7 @@ struct levelEditorApp: App {
     
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            SavedLevelsModel.self, AssetsDataModel.self
+            //SavedLevelsModel.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

@@ -24,7 +24,7 @@ struct EditLevelView: View {
     let entityAssets = affectAssetsType(imageNames: ENTITY_NAMES, type: AssetsType.ENTITY)
     let backgroundAssets = affectAssetsType(imageNames: BACKGROUND_NAMES, type: AssetsType.BACKGROUND)
     @State private var selectedImage: URL?
-    @State private var selectedBackground: String?
+    @State private var selectedBackground: URL?
     @State private var selectedAsset: Assets?
     
 
@@ -152,14 +152,16 @@ struct EditLevelView: View {
                 if showingBackground{
                     ScrollView{
                         VStack{
-                            ForEach(backgroundNames, id: \.self) { backgroundName in
-                                Image(backgroundName)
+                            ForEach(getAssetsByType(allAssets, assetType: AssetsType.BACKGROUND), id: \.self) { background in
+                                Image(nsImage: NSImage(contentsOf: background.url!)!)
+                                    .resizable()
+                                    .interpolation(.none)
                                     .scaleEffect(1.25)
                                     .padding()
                                     .onTapGesture {
                                         isErazerSelected = false
-                                        self.selectedBackground = backgroundName
-                                        dataGrid.background = backgroundName
+                                        self.selectedBackground = background.url
+                                        dataGrid.background = background.url
                                         
                                     }
                             }
@@ -254,7 +256,10 @@ struct EditLevelView: View {
                         if selectedBackground != nil {
                             HStack{
                                 Text("Current background : ")
-                                Image(selectedBackground!)
+                                Image(nsImage: NSImage(contentsOf: selectedBackground!)!)
+                                    .resizable()
+                                    .interpolation(.none)
+                                    
                                     .scaleEffect(0.7)
                                 Spacer()
                                 Button{
@@ -284,7 +289,10 @@ struct EditLevelView: View {
                         
                             .overlay {
                                 if selectedBackground != nil {
-                                    Image(selectedBackground!)
+                                    Image(nsImage: NSImage(contentsOf: selectedBackground!)!)
+                                        .resizable()
+                                        .interpolation(.none)
+                                        .scaleEffect(1.25)
                                 }
                             }
                             

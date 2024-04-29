@@ -2,8 +2,7 @@ import SwiftUI
 import SwiftData
 
 struct AssetsCollectionView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query() private var assets: [AssetsDataModel]
+    
     
     @State private var selectedTypeForDetailView: AssetsType = AssetsType.STRUCTURE
     

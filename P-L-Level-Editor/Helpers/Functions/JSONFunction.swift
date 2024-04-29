@@ -209,7 +209,7 @@ func JSONToLevelGridForItem(jsonDictionary jsonD: [String: Any]) -> LevelGridFor
         
         if key == "background" {
             if let background = value as? String {
-                levelGrid.background = background
+                levelGrid.background = fromStringToUrl(from: background)
             } else {
                 return nil
             }

@@ -22,7 +22,7 @@ struct LevelGrid {
 class LevelGridForItem : Codable {
     var rows: Int
     var columns: Int
-    var background: String?
+    var background: URL?
     var name: String?
     var gridItems: [[LevelGridItem]]
     
@@ -49,11 +49,11 @@ class LevelGridForItem : Codable {
         
     }
     
-    func getBackground() -> String? {
+    func getBackground() -> URL? {
         return self.background
     }
     
-    func setBackground(background: String?) -> Void {
+    func setBackground(background: URL?) -> Void {
         self.background = background
     }
     

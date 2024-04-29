@@ -10,6 +10,7 @@ struct FileMonitorTestView: View {
         
         NavigationStack{
             VStack {
+                
                 HStack{
                     Text("Current Assets selected folder : ")
                     Text("\(selectedDirectory)")
@@ -37,12 +38,20 @@ struct FileMonitorTestView: View {
                                 .foregroundStyle(.pink)
                                 .font(.caption)
                         }
-                        .padding()
+                        
                        
                         
                         
                     }
                     .padding()
+                }
+                
+                HStack{
+                    Text("Assets : ")
+                    Text("\(AssetsFileMonitorSingleton.shared.getAssetsNumber())")
+                        .foregroundStyle(.pink)
+                    Spacer()
+                    
                 }
                 
                

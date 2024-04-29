@@ -81,10 +81,10 @@ struct PlaygroundView: View {
                                         return
                                     }
                                     
-                                    let validBackgroundName = getImageNameFromResourceString(from: dataGrid!.background!)
+                                    //let validBackgroundName = "getImageNameFromResourceString(from: dataGrid!.background!)"
                                 
                                    
-                                    dataGrid?.setBackground(background: dataGrid?.background ?? "default_background")
+                                    //dataGrid?.setBackground(background: dataGrid?.background ?? "default_background")
                                     
                                     
                                 } else {

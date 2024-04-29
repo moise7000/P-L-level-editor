@@ -22,7 +22,7 @@ func getTypeFromString(from string:String) -> AssetsType? {
     if string == "structures" {
         return AssetsType.STRUCTURE
     }
-    if string == "background" {
+    if string == "backgrounds" {
         return AssetsType.BACKGROUND
     }
     return nil

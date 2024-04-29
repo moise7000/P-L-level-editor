@@ -32,7 +32,7 @@ struct NewLevelView: View {
     
     @State private var grid: LevelGrid = createGrid(rows: 8, columns: 16)                       //Grid = This grid contains the URL of all the level Images
     @State private var selectedImage: URL?
-    @State private var selectedBackground: String?                                              //Must nbe URL?
+    @State private var selectedBackground: Assets?                                              //Must nbe URL?
     @State private var currentLevelName: String = ""
     
     
@@ -176,14 +176,16 @@ struct NewLevelView: View {
                 if showingBackground{
                     ScrollView{
                         VStack{
-                            ForEach(backgroundNames, id: \.self) { backgroundName in
-                                Image(backgroundName)
+                            ForEach(getAssetsByType(allAssets, assetType: AssetsType.BACKGROUND), id: \.self) { background in
+                                Image(nsImage: NSImage(contentsOf: background.url!)!)
+                                    .resizable()
+                                    .interpolation(.none)
                                     .scaleEffect(1.25)
                                     .padding()
                                     .onTapGesture {
                                         isErazerSelected = false
-                                        self.selectedBackground = backgroundName
-                                        dataGrid.background = backgroundName
+                                        self.selectedBackground = background
+                                        dataGrid.background = background.url
                                         
                                     }
                             }
@@ -248,8 +250,10 @@ struct NewLevelView: View {
                         if selectedBackground != nil {
                             HStack{
                                 Text("Current background : ")
-                                Image(selectedBackground!)
-                                    .scaleEffect(0.7)
+                                Image(nsImage: NSImage(contentsOf: selectedBackground!.url!)!)
+                                    .resizable()
+                                    .interpolation(.none)
+                                    .frame(width: 64, height: 32)
                                 Spacer()
                                 Button{
                                     selectedBackground = nil
@@ -279,7 +283,8 @@ struct NewLevelView: View {
                         
                             .overlay {
                                 if selectedBackground != nil {
-                                    Image(selectedBackground!)
+                                    Image(nsImage: NSImage(contentsOf: selectedBackground!.url!)!)
+                                        .interpolation(.none)
                                 }
                             }
                             
@@ -308,13 +313,11 @@ struct NewLevelView: View {
                                                     }
                                                     else {
                                                         let imageSize =  getSize(grid.images[row][column]!)
-                                                        Image(nsImage: NSImage(contentsOf: grid.images[row][column]!)!)
-                                                             
-                                                            
-                                                            
-                                                            .interpolation(.none)
-                                                            
-                                                            .offset(y: getInvalidImageOffset(grid.images[row][column]!) ?? 0)
+                                                        if NSImage(contentsOf: grid.images[row][column]!) != nil {
+                                                            Image(nsImage: NSImage(contentsOf: grid.images[row][column]!)!)
+                                                                .interpolation(.none)
+                                                                .offset(y: getInvalidImageOffset(grid.images[row][column]!) ?? 0)
+                                                        }      
                                                     }
                                                     
                                                     
@@ -801,7 +804,7 @@ struct NewLevelView: View {
             }
         }
         .onAppear{
-            self.dataGrid = LevelGridForItem(rows: 8, columns: 16)
+            //self.dataGrid = LevelGridForItem(rows: 8, columns: 16)
         }
         .navigationTitle("Level Editor")
     }

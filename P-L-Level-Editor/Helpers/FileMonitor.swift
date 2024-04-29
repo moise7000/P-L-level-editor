@@ -156,6 +156,10 @@ class AssetsFileMonitorSingleton {
         return self.assets == []
     }
     
+    func getAssetsNumber() -> Int {
+        return length(self.assets)
+    }
+    
     
     
     

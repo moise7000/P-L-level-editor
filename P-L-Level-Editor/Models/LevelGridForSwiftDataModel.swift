@@ -13,7 +13,7 @@ import Foundation
 struct LevelGridForSwiftData : Codable {
     var rows: Int
     var columns: Int
-    var background: String?
+    var background: URL?
     var name: String?
     var gridItems: [[LevelGridItem]]
 }
