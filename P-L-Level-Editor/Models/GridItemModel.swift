@@ -35,8 +35,8 @@ func serializeSTRUCTUREForJSON(_ levelGridItem: LevelGridItem) -> [String: Any] 
     out["x"] = levelGridItem.xPostion
     out["y"] = levelGridItem.yPositon
     
-    //MARK: Need a review
-    out["resource"] = "src_assets_" + (levelGridItem.assets != nil ? levelGridItem.assets!.image : "")
+    
+    out["resource"] = (levelGridItem.assets != nil && levelGridItem.assets!.url != nil) ? setStructureNameForJson(url: levelGridItem.assets!.url!) : "[!] ERROR : Please enter the file name yoursefl"
     
     
     out["allow_pass_through"] = levelGridItem.allowPassTrough ?? "none"
@@ -46,16 +46,13 @@ func serializeSTRUCTUREForJSON(_ levelGridItem: LevelGridItem) -> [String: Any] 
     
 }
 
-func serializeENTITYForJSON(_ levelGridItem: LevelGridItem) -> [String: Any]? {         //MARK: Need a review
+func serializeENTITYForJSON(_ levelGridItem: LevelGridItem) -> [String: Any]? {
     var out: [String : Any] = [:]
     if levelGridItem.assets != nil {
         
-        //MARK: Need a review
-        out["identifier"] = levelGridItem.assets!.image
         
-        
-        
-        
+        out["identifier"] = levelGridItem.assets!.url != nil ? makeEntityIdentifierForJson(url: levelGridItem.assets!.url!) : "[!] ERROR : Enter yourself the  identifier of this entity."
+
         out["x"] = levelGridItem.xPostion
         out["y"] = levelGridItem.yPositon
         

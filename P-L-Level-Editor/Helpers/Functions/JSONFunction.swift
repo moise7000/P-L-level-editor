@@ -41,6 +41,17 @@ func setStructureNameForJson(url: URL) -> String? {
     }
 }
 
+func makeEntityIdentifierForJson(url: URL) -> String? {
+    let urlString = fromUrlToString(from: url)
+    if let imageNamePNG = getImageNameFromUrlString(from: urlString) {
+        let imageName = removePNGExtension(from: imageNamePNG)
+        return imageName
+    } else {
+        print("[!] ERROR : Can't get imageName from this url : \(url)")
+        return nil
+    }
+    
+}
 
 // MARK: For json identifier
 // - fromUrlToString
