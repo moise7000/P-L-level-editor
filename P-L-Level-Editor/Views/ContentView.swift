@@ -10,14 +10,17 @@ struct ContentView: View {
     
     var body: some View {
         
-        let stringViews = ["New Level",
+        let stringViewsV1 = ["New Level",
                            "Edit Level",
                            "Sounds",
                            "Assets Collection",
                            "Source Assets Folder"]
+        let stringViewsV2 = ["New Level",
+                           "Assets Collection",
+                           "Source Assets Folder"]
         
         NavigationSplitView {
-            List(stringViews, id: \.self, selection: $selectedView) { view in
+            List(stringViewsV2, id: \.self, selection: $selectedView) { view in
                 HStack{
                     Text(view)
                     if view == "Source Assets Folder" && (AssetsFileMonitorSingleton.shared.isAssetsMonitoredEmpty() || AssetsFileMonitorSingleton.shared.isFilesMonitoredEmpty()) {
