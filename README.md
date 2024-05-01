@@ -14,10 +14,10 @@ Dans le projet ```C```, on a l'architecture de fichiers suivante :
 ```
 |--src
     |-assets
-        |-Entities
-        |-Structures
-        |-Backgrounds
-        |-EntitiesForEditor : Contient une seule frame par sprite. Cette frame sera affichée dans l'éditeur
+        |-entities
+        |-structures
+        |-backgrounds
+        |-entitiesForEditor : Contient une seule frame par sprite. Cette frame sera affichée dans l'éditeur
         
 ```
         
@@ -26,8 +26,8 @@ La gestion des assets de l'éditeur repose sur l'architecture du projet ```C``` 
 
 En ce qui concerne l'ajout d'asset il faut proceder de la manière suivante :  
 - Le nom de votre fichier png doit être écrit en camlCase : ```nomDeMonImage.png```. Cela est nécessaire pour la génération du fichier JSON.
-- Pour l'ajout de structures, respectivement background, : Vous ajoutez simplement votre sprite (au bon format) dans le dossier ```src/assets/Structures```, respectivement ```src/assets/Background```
-- ** [!] Pour les entités ** : vous ajoutez vos differents sprite d'animation  dans le dossiers ```src/assets/Entities``` puis dans le dossier ```src/assets/EntitiesForEditor``` vous ajoutez une frame du sprite qui sera celle utilisé dans le l'éditeur. _C'est sûrement relou, je suis ouvert à tout contributons constructives pour améliorer ce système_ 
+- Pour l'ajout de structures, respectivement backgrounds, : Vous ajoutez simplement votre sprite (au bon format) dans le dossier ```src/assets/Structures```, respectivement ```src/assets/backgrounds```
+- ** [!] Pour les entités ** : vous ajoutez vos differents sprite d'animation  dans le dossiers ```src/assets/entities``` puis dans le dossier ```src/assets/entitiesForEditor``` vous ajoutez une frame du sprite qui sera celle utilisé dans le l'éditeur. _C'est sûrement relou, je suis ouvert à tout contributons constructives pour améliorer ce système_ 
  
 
 
