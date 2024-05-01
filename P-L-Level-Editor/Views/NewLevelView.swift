@@ -69,6 +69,7 @@ struct NewLevelView: View {
     
     
 //--------------------// PopOver //--------------------//
+    @State private var showNewLevelSucces = false
     @State private var showSelectedImageZOOM = false
     @State private var showLevelNamePopover = false
     @State private var showLevelNameJSONPopover = false
@@ -738,9 +739,12 @@ struct NewLevelView: View {
                                     let serializedData = dataGrid.serializeForJSON()
                                     if let url = showSavePanel() {
                                         do {
+                                            print("[DEBUG] Serialized data : \(serializedData)")
                                             let jsonData = try JSONSerialization.data(withJSONObject: serializedData, options: .prettyPrinted)
                                             try jsonData.write(to: url)
                                             print("JSON data was written to the file successfully.")
+                                            
+                                           
                                             
                                         } catch {
                                             print("Failed to write JSON data to the file: \(error)")
@@ -762,6 +766,7 @@ struct NewLevelView: View {
                         }
                         .frame(width: 400, height: 400)
                     }
+                    
                     Spacer()
                     
                     

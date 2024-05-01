@@ -41,6 +41,19 @@ func setStructureNameForJson(url: URL) -> String? {
     }
 }
 
+func setBackgroundNameForJSon(url: URL) -> String? {
+    let urlString = fromUrlToString(from: url)
+    if let jsonPath = extractJsonPathFromUrlString(from: urlString) {
+        let jsonFormatPath = urlPathToJsonFormatPath(jsonPath)
+        let final = removePNGExtension(from: jsonFormatPath)
+        return final
+    } else {
+        print("[!] ERROR : can't get the JSON path from this url : \(url)")
+        return nil
+    }
+}
+
+
 func makeEntityIdentifierForJson(url: URL) -> String? {
     let urlString = fromUrlToString(from: url)
     if let imageNamePNG = getImageNameFromUrlString(from: urlString) {

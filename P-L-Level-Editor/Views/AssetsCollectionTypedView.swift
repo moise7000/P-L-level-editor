@@ -32,7 +32,7 @@ struct AssetsCollectionTypedView: View {
                                         .resizable()
                                         .interpolation(.none)
                                         .aspectRatio(contentMode: .fit)
-                                    Text(asset.image)
+                                    Text(removePNGExtension(from: asset.image))
                                 }
                                 
                             }

@@ -116,8 +116,7 @@ func fromStringToUrl(from string: String) -> URL? {
 
 
 
-
 //MARK: For edit
-// -
-// -
-// -
+//fromUrlToString
+// - removePNGExtension
+// - getImageNameFromUrlString

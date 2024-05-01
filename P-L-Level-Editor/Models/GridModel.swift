@@ -229,7 +229,7 @@ class LevelGridForItem : Codable {
     func serializeForJSON() -> [String: Any] {          //MARK: Need a review
            var out: [String: Any] = [:]
        
-           out["background"] = self.background ?? "default_background"
+        out["background"] = (self.background != nil && setBackgroundNameForJSon(url: self.background!) != nil) ? setBackgroundNameForJSon(url: self.background!)  : "src_assets_backgrounds_default_background"
            out["name"] = self.name ?? "level_without_name_dumbass_" + UUID().uuidString
            out["structures"] = multipleSerializeSTRUCTUREForJSON(self.getAllStructure())
            out["entities"] = multipleSerializeENTITYForJSON(self.getAllEntities())
