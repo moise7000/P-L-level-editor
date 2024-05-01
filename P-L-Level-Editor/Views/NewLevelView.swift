@@ -9,7 +9,7 @@
 
 import SwiftUI
 import SwiftData
-
+import AppKit
 
 enum ActiveAlert {
     case resetAlert, jsonAlert, emptyLevelAlert, noTeleporter
@@ -732,7 +732,7 @@ struct NewLevelView: View {
                                     dataGrid.setName(name: currentLevelName)
                                     print("[DEBUG] level name afeter affectation: \(dataGrid.getName())")
                                     
-                                    dataGrid.save(modelContext: modelContext)
+                                    //dataGrid.save(modelContext: modelContext)
                                     
                                     dataGrid.setAllAPT(data: aptData)
                                     let serializedData = dataGrid.serializeForJSON()
@@ -741,13 +741,14 @@ struct NewLevelView: View {
                                             let jsonData = try JSONSerialization.data(withJSONObject: serializedData, options: .prettyPrinted)
                                             try jsonData.write(to: url)
                                             print("JSON data was written to the file successfully.")
-                                            dismiss()
+                                            
                                         } catch {
                                             print("Failed to write JSON data to the file: \(error)")
                                             activeAlert = .jsonAlert
                                             showAlert = true
                                         }
                                     }
+                                    
                                     
                                     
                                     //save
