@@ -58,6 +58,7 @@ func isStringContaintsSubString(_ main:String, _ sub: String) -> Bool{
 
 
 func extractJsonPathFromUrlString(from urlString: String) -> String? {
+    //Users/ewan/Documents/src/assets/entities/imageName.png ->src/assets/entities/imageName.png
     if let range = urlString.range(of: "src") {
         let nouveauChemin = String(urlString[range.lowerBound...])
         return nouveauChemin
@@ -86,8 +87,16 @@ func getTypeFromUrlString(from urlString: String) -> AssetsType? {
    
 }
 
-func urlPathToJsonFormatPath(_ url: String) -> String {
+func urlPathToJsonFormatPath(_ url: String) -> String {       // src/assets/structures/imageName.png  ---> src_assets_structures_imageName.png
     return url.replacingOccurrences(of: "/", with: "_")
+}
+
+func removePNGExtension(from string: String) -> String {       // imageName.png ----> imageName
+    if string.hasSuffix(".png") {
+        let endIndex = string.index(string.endIndex, offsetBy: -4)
+        return String(string[..<endIndex])
+    }
+    return string
 }
 
 func jsonFormatPathToUrlPath(_ jsonFormat: String) -> String {
@@ -104,3 +113,11 @@ func fromStringToUrl(from string: String) -> URL? {
 
 
 
+
+
+
+
+//MARK: For edit
+// -
+// -
+// -

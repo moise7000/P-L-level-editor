@@ -23,6 +23,32 @@ func readJSON(url: URL) -> [String: Any]? {
 }
 
 
+// MARK: For json resource
+// - fromUrlToString
+// - extractJsonPathFromUrlString
+// - urlPathToJsonFormatPath
+// - removePNGExtension
+
+func setStructureNameForJson(url: URL) -> String? {
+    let urlString = fromUrlToString(from: url)
+    if let jsonPath = extractJsonPathFromUrlString(from: urlString) {
+        let jsonFormatPath = urlPathToJsonFormatPath(jsonPath)
+        let final = removePNGExtension(from: jsonFormatPath)
+        return final
+    } else {
+        print("[!] ERROR : can't get the JSON path from this url : \(url)")
+        return nil
+    }
+}
+
+
+// MARK: For json identifier
+// - fromUrlToString
+// - removePNGExtension
+// - getImageNameFromUrlString
+
+
+
 
 
 

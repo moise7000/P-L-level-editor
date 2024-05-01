@@ -26,12 +26,19 @@ func isLevelGridItemEmpty(_ item: LevelGridItem) -> Bool {
 }
 
 
-func serializeSTRUCTUREForJSON(_ levelGridItem: LevelGridItem) -> [String: Any] { //-----------------------------------------> NIL ?
+func serializeSTRUCTUREForJSON(_ levelGridItem: LevelGridItem) -> [String: Any] {       //MARK: Need a review
     var out: [String : Any] = [:]
+    //MARK: Need a review
     out["identifier"] = (levelGridItem.assets != nil ? levelGridItem.assets!.id : "") + "_" + UUID().uuidString
+    
+    
     out["x"] = levelGridItem.xPostion
     out["y"] = levelGridItem.yPositon
+    
+    //MARK: Need a review
     out["resource"] = "src_assets_" + (levelGridItem.assets != nil ? levelGridItem.assets!.image : "")
+    
+    
     out["allow_pass_through"] = levelGridItem.allowPassTrough ?? "none"
     out["teleport_to_scene"] = levelGridItem.teleportToScene ?? "none"
     
@@ -39,10 +46,16 @@ func serializeSTRUCTUREForJSON(_ levelGridItem: LevelGridItem) -> [String: Any] 
     
 }
 
-func serializeENTITYForJSON(_ levelGridItem: LevelGridItem) -> [String: Any]? {
+func serializeENTITYForJSON(_ levelGridItem: LevelGridItem) -> [String: Any]? {         //MARK: Need a review
     var out: [String : Any] = [:]
     if levelGridItem.assets != nil {
+        
+        //MARK: Need a review
         out["identifier"] = levelGridItem.assets!.image
+        
+        
+        
+        
         out["x"] = levelGridItem.xPostion
         out["y"] = levelGridItem.yPositon
         
@@ -52,7 +65,7 @@ func serializeENTITYForJSON(_ levelGridItem: LevelGridItem) -> [String: Any]? {
     }
 }
 
-func multipleSerializeSTRUCTUREForJSON(_ levelGridItems: [LevelGridItem]) -> [[String:Any]] {
+func multipleSerializeSTRUCTUREForJSON(_ levelGridItems: [LevelGridItem]) -> [[String:Any]] {       //MARK: Need a review
     var out: [[String:Any]] = []
     for levelGridItem in levelGridItems {
         out.append(serializeSTRUCTUREForJSON(levelGridItem))
@@ -60,7 +73,7 @@ func multipleSerializeSTRUCTUREForJSON(_ levelGridItems: [LevelGridItem]) -> [[S
     return out
 }
 
-func multipleSerializeENTITYForJSON(_ levelGridItems: [LevelGridItem]) -> [[String:Any]] {
+func multipleSerializeENTITYForJSON(_ levelGridItems: [LevelGridItem]) -> [[String:Any]] {          //MARK: Need a review
     var out: [[String:Any]] = []
     for levelGridItem in levelGridItems {
         if let serializedItem = serializeENTITYForJSON(levelGridItem) {

@@ -226,7 +226,7 @@ class LevelGridForItem : Codable {
         return getItemByAssetsType(assetType: AssetsType.STRUCTURE)
     }
 
-    func serializeForJSON() -> [String: Any] {
+    func serializeForJSON() -> [String: Any] {          //MARK: Need a review
            var out: [String: Any] = [:]
        
            out["background"] = self.background ?? "default_background"
