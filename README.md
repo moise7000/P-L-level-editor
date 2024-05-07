@@ -25,9 +25,7 @@ Dans le projet ```C```, on a l'architecture de fichiers suivante :
 La gestion des assets de l'éditeur repose sur l'architecture du projet ```C``` . En effet l'éditeur vous demande de selectionner un dossier supposé contenir tous les assets du jeu. Il alors regarde tous les fichiers qui se trouvent dans ce dossier. Il est donc essentiel de selectionner le dossier ```src/```
 
 En ce qui concerne l'ajout d'asset il faut proceder de la manière suivante :  
-- Le nom de votre fichier png doit être écrit en camlCase : ```nomDeMonImage.png```. Cela est nécessaire pour la génération du fichier JSON.
-- Pour l'ajout de structures, respectivement backgrounds, : Vous ajoutez simplement votre sprite (au bon format) dans le dossier ```src/assets/structures```, respectivement ```src/assets/backgrounds```
-- ** [!] Pour les entités ** : vous ajoutez vos differents sprite d'animation  dans le dossiers ```src/assets/entities``` puis dans le dossier ```src/assets/entitiesForEditor``` vous ajoutez une frame du sprite qui sera celle utilisé dans le l'éditeur. _C'est sûrement relou, je suis ouvert à tout contributons constructives pour améliorer ce système_ 
+- Le nom de votre fichier png doit être écrit en camlCase : ```nomDeMonImage.png```. Cela est nécessaire pour la génération du fichier JSON. 
  
 
 
