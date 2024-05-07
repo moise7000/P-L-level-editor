@@ -111,8 +111,25 @@ func fromStringToUrl(from string: String) -> URL? {
     return URL(string: string)
 }
 
+func formatNextLevelNameForTeleporter(_ inputNextLevelName: String) -> String {
+    var formatedNextLevelName: String = ""
+    for char in inputNextLevelName{
+        if char != " "{
+            formatedNextLevelName.append(char)
+        } else {
+            formatedNextLevelName.append("_")
+        }
+    }
+    return formatedNextLevelName
+}
 
 
+func makeTeleporterToScene(nextLevelName: String, posX:Int, posY: Int) -> String {
+    var out: String = ""
+    out += formatNextLevelNameForTeleporter(nextLevelName)
+    out += String(posX) + "_" + String(posY)
+    return out
+}
 
 
 

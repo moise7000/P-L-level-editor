@@ -38,15 +38,7 @@ struct AssetsCollectionTypedView: View {
                             }
                             
                         }
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+  
                     }
                     .padding(.all, 10)
                 }

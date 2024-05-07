@@ -419,6 +419,7 @@ struct NewLevelView: View {
                                                         showTeleporterPopover[row][column] = true
                                                     } label:{
                                                         Text("Add level teleporter ")
+//                                                        TextField("Level name", text: <#T##Binding<String>#>)
                                                     }
                                                 } else {
                                                     Text("Add level teleporter ")
