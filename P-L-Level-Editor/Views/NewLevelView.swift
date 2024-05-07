@@ -605,6 +605,7 @@ struct NewLevelView: View {
                                                                     
                                                     }
                                                     .padding()
+                                                    
                                                     Button{
                                                         let formatedInput = formatNextLevelNameForTeleporter(teleporterData[row][column])
                                                         let xPosition = teleporterDataPositions[row][column].0
@@ -617,6 +618,7 @@ struct NewLevelView: View {
                                                     } label: {
                                                         Text("Save")
                                                     }
+                                                    .disabled(saveConditionForTeleporter(row, column: column))
                                                     .keyboardShortcut(.defaultAction)
                                                     
                                                         
@@ -881,6 +883,8 @@ struct NewLevelView: View {
         }
     }
     
-    
+    private func saveConditionForTeleporter(_ row: int, column : Int) -> Bool {
+        teleporterDataPositions[row][column].0 == -1 || teleporterDataPositions[row][column].1 == -1  || teleporterData[row][column] == "none" || teleporterData[row][column] == ""
+     
 }
 

@@ -57,7 +57,7 @@ struct DetailView: View {
                     Spacer()
                 }
                 HStack{
-                    Text("Teleporter : None")
+                    Text("Teleporter : \(dataGrid.gridItems[row][column].teleportToScene)")
                     Spacer()
                 }
                 

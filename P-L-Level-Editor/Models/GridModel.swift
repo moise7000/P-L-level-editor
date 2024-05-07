@@ -130,8 +130,8 @@ class LevelGridForItem : Codable {
     func containsTeleporter() -> Bool {
         for row in 0..<self.rows {
             for column in 0..<self.columns {
-                if self.gridItems[row][column].teleportToScene != nil {
-                    return false
+                if self.gridItems[row][column].teleportToScene != "none" {
+                    return true
                 }
             }
         }
