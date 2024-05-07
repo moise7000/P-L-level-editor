@@ -28,7 +28,7 @@ struct NewLevelView: View {
     let structureAssets = affectAssetsType(imageNames: STRUCTURE_NAMES , type: AssetsType.STRUCTURE)
     let entityAssets = affectAssetsType(imageNames: ENTITY_NAMES, type: AssetsType.ENTITY)
     let backgroundAssets = affectAssetsType(imageNames: BACKGROUND_NAMES, type: AssetsType.BACKGROUND)
-   
+    
     
     @State private var grid: LevelGrid = createGrid(rows: 8, columns: 16)                       //Grid = This grid contains the URL of all the level Images
     @State private var selectedImage: URL?
@@ -55,20 +55,20 @@ struct NewLevelView: View {
     @State private var displayForeground: Bool = true
     @State private var displayAllPassTrough: Bool = false
     @State private var displayGrid: Bool = true
-
     
-//--------------------// ALERT //--------------------//
+    
+    //--------------------// ALERT //--------------------//
     @State private var showResetAlert: Bool = false
     @State private var showJSONAlert: Bool = false
     
     @State private var showAlert: Bool = false
     @State private var activeAlert: ActiveAlert = .resetAlert
-//--------------------------------------------------//
-    
-
+    //--------------------------------------------------//
     
     
-//--------------------// PopOver //--------------------//
+    
+    
+    //--------------------// PopOver //--------------------//
     @State private var showNewLevelSucces = false
     @State private var showSelectedImageZOOM = false
     @State private var showLevelNamePopover = false
@@ -82,19 +82,19 @@ struct NewLevelView: View {
     @State private var teleporterData: [[String]]
     @State private var teleporterDataPositions: [[(Int, Int)]]
     init() {
-            _showDetailPopover = State(initialValue: Array(repeating: Array(repeating: false, count: 16), count: 8))
-            _showEditAPTPopover = State(initialValue: Array(repeating: Array(repeating: false, count: 16), count: 8))
-            _showCollisionsPopover = State(initialValue: Array(repeating: Array(repeating: false, count: 16), count: 8))
-            _aptData = State(initialValue: Array(repeating: Array(repeating: [], count: 16), count: 8))
-            _showTeleporterPopover = State(initialValue: Array(repeating: Array(repeating: false, count: 16), count: 8))
-            _teleporterData = State(initialValue: Array(repeating: Array(repeating: "none", count: 16), count: 8))
-            _teleporterDataPositions = State(initialValue: Array(repeating: Array(repeating: (-1,-1), count: 16), count: 8))
-            
-        }
+        _showDetailPopover = State(initialValue: Array(repeating: Array(repeating: false, count: 16), count: 8))
+        _showEditAPTPopover = State(initialValue: Array(repeating: Array(repeating: false, count: 16), count: 8))
+        _showCollisionsPopover = State(initialValue: Array(repeating: Array(repeating: false, count: 16), count: 8))
+        _aptData = State(initialValue: Array(repeating: Array(repeating: [], count: 16), count: 8))
+        _showTeleporterPopover = State(initialValue: Array(repeating: Array(repeating: false, count: 16), count: 8))
+        _teleporterData = State(initialValue: Array(repeating: Array(repeating: "none", count: 16), count: 8))
+        _teleporterDataPositions = State(initialValue: Array(repeating: Array(repeating: (-1,-1), count: 16), count: 8))
+        
+    }
     
     @State private var testBoolAPT: Bool = false
-
-//----------------------------------------------------//
+    
+    //----------------------------------------------------//
     
     let a: CGFloat = 1.0
     let b: CGFloat = 70.0
@@ -134,7 +134,7 @@ struct NewLevelView: View {
                     }
                 }
                 
-            
+                
                 if showingEntity{
                     ScrollView{
                         VStack{
@@ -225,12 +225,12 @@ struct NewLevelView: View {
                                         showSelectedImageZOOM = true
                                     }
                                     .onHover { hovering in
-                                                    if hovering {
-                                                        NSCursor(image: NSImage(named: "zoom_loupe")!, hotSpot: NSPoint(x: 0, y: 0)).push()
-                                                    } else {
-                                                        NSCursor.pop()
-                                                    }
-                                                }
+                                        if hovering {
+                                            NSCursor(image: NSImage(named: "zoom_loupe")!, hotSpot: NSPoint(x: 0, y: 0)).push()
+                                        } else {
+                                            NSCursor.pop()
+                                        }
+                                    }
                                     .popover(isPresented: $showSelectedImageZOOM){
                                         HStack{
                                             Image(nsImage: NSImage(contentsOf: selectedAsset!.url!)!)
@@ -246,7 +246,7 @@ struct NewLevelView: View {
                                 
                             }
                             
-                                
+                            
                         } else {
                             HStack{
                                 Text("Selected image : ")
@@ -256,9 +256,9 @@ struct NewLevelView: View {
                                 Spacer()
                                 
                             }
-                           
+                            
                         }
-
+                        
                         
                         if selectedBackground != nil && NSImage(contentsOf: selectedBackground!.url!) != nil {
                             HStack{
@@ -272,9 +272,9 @@ struct NewLevelView: View {
                                     selectedBackground = nil
                                     // delete background from dataGrid
                                     dataGrid.background = nil
-                                    } label: {
-                                        Text("Delete")
-                                            .foregroundStyle(.pink)
+                                } label: {
+                                    Text("Delete")
+                                        .foregroundStyle(.pink)
                                 }
                             }
                         }
@@ -300,7 +300,7 @@ struct NewLevelView: View {
                                         .interpolation(.none)
                                 }
                             }
-                            
+                        
                     }
                     
                     if displayForeground {
@@ -312,7 +312,7 @@ struct NewLevelView: View {
                                         Rectangle()
                                             .fill(Color.gray.opacity(0.01))
                                             .frame(width: 16, height: 16)
-                                            
+                                        
                                             .overlay {
                                                 // display image if image exists
                                                 if grid.images[row][column] != nil{
@@ -330,7 +330,7 @@ struct NewLevelView: View {
                                                             Image(nsImage: NSImage(contentsOf: grid.images[row][column]!)!)
                                                                 .interpolation(.none)
                                                                 .offset(y: getInvalidImageOffset(grid.images[row][column]!) ?? 0)
-                                                        }      
+                                                        }
                                                     }
                                                     
                                                     
@@ -348,7 +348,7 @@ struct NewLevelView: View {
                                                     dataGrid.setAsset(row, column, asset: selectedAsset!)
                                                 }
                                                 
-                                               
+                                                
                                                 
                                                 if isErazerSelected {
                                                     // Delete the image from the grid
@@ -363,14 +363,14 @@ struct NewLevelView: View {
                                                     aptData[row][column] = []
                                                 }
                                                 
-      
-                                               
+                                                
+                                                
                                                 
                                                 
                                                 
                                                 
                                             }
-                                            
+                                        
                                             .contextMenu(ContextMenu(menuItems: {
                                                 Button{
                                                     print("[DEBUG] is level empty ? : \(dataGrid.isEmpty())")
@@ -381,7 +381,7 @@ struct NewLevelView: View {
                                                 } label:{
                                                     Text("DEBUG")
                                                 }
-
+                                                
                                                 
                                                 Button{
                                                     selectedAsset = nil
@@ -390,9 +390,9 @@ struct NewLevelView: View {
                                                     
                                                 } label :{
                                                     Text("Information")
-                                                        
+                                                    
                                                 }
-
+                                                
                                                 
                                                 if grid.images[row][column] != nil {
                                                     Button{
@@ -406,7 +406,7 @@ struct NewLevelView: View {
                                                 } else {
                                                     Text("Show collisions")
                                                 }
-
+                                                
                                                 if grid.images[row][column] != nil {
                                                     Button{
                                                         showEditAPTPopover[row][column] = true
@@ -436,7 +436,7 @@ struct NewLevelView: View {
                                                            column: column,
                                                            aptData: aptData,
                                                            a: a, b: b, c: c, d: d)
-                                                    
+                                                
                                             }
                                             .popover(isPresented: $showEditAPTPopover[row][column]) {
                                                 HStack{
@@ -576,7 +576,7 @@ struct NewLevelView: View {
                                                 }
                                                 .frame(width: 600, height: 300)
                                                 
-                                                    
+                                                
                                             }
                                             .popover(isPresented: $showCollisionsPopover[row][column]){
                                                 CollisionsView(dataGrid: dataGrid,
@@ -590,19 +590,19 @@ struct NewLevelView: View {
                                                     TextField("Level name", text: $teleporterData[row][column])
                                                     HStack{
                                                         Picker("X Position", selection: $teleporterDataPositions[row][column].0) {
-                                                                        ForEach(0..<16) {
-                                                                            Text("\($0)")
-                                                                        }
-                                                                    }
-                                                                    
+                                                            ForEach(0..<16) {
+                                                                Text("\($0)")
+                                                            }
+                                                        }
+                                                        
                                                         
                                                         Picker("Y Position", selection: $teleporterDataPositions[row][column].1) {
-                                                                        ForEach(0..<8) {
-                                                                            Text("\($0)")
-                                                                        }
-                                                                    }
-                                                                    
-                                                                    
+                                                            ForEach(0..<8) {
+                                                                Text("\($0)")
+                                                            }
+                                                        }
+                                                        
+                                                        
                                                     }
                                                     .padding()
                                                     
@@ -621,18 +621,18 @@ struct NewLevelView: View {
                                                     .disabled(saveConditionForTeleporter(row, column: column))
                                                     .keyboardShortcut(.defaultAction)
                                                     
-                                                        
+                                                    
                                                 }
                                                 .padding()
                                                 .frame(width: 300, height: 300)
                                             }
                                             .border(displayGrid ? Color.black : Color.clear, width: 0.1)
-
+                                        
                                     }
                                 }
                             }
                         }
-                       
+                        
                     }
                     
                     
@@ -642,7 +642,7 @@ struct NewLevelView: View {
                 }
                 .scaleEffect(zoomLevel)
                 
-
+                
                 
                 Spacer()
                 
@@ -663,10 +663,10 @@ struct NewLevelView: View {
                     Toggle(isOn: $displayGrid) {
                         Text("Grid")
                     }
-                   
-//                    Toggle(isOn: $displayAllPassTrough) {
-//                    Text("AllPassTrough")
-//                }
+                    
+                    //                    Toggle(isOn: $displayAllPassTrough) {
+                    //                    Text("AllPassTrough")
+                    //                }
                     
                     Button(action: {zoomLevel += 0.1}) {Text("+")}
                     
@@ -689,9 +689,9 @@ struct NewLevelView: View {
                         Text("Reset level")
                             .bold()
                             .foregroundStyle(.red)
-                            
+                        
                     }
-                                        
+                    
                     
                     
                     Spacer()
@@ -736,7 +736,7 @@ struct NewLevelView: View {
                     
                     
                     Button {
-                       
+                        
                         dataGrid.setAllAPT(data: aptData)
                         
                         if dataGrid.isEmpty() {
@@ -782,7 +782,7 @@ struct NewLevelView: View {
                                             try jsonData.write(to: url)
                                             print("JSON data was written to the file successfully.")
                                             
-                                           
+                                            
                                             
                                         } catch {
                                             print("Failed to write JSON data to the file: \(error)")
@@ -822,12 +822,12 @@ struct NewLevelView: View {
                 return Alert(title: Text("Reset Level"),
                              message: Text("Are you sure ? Take a break and think ..."),
                              primaryButton: .destructive(Text("Reset level")){
-                           // Reste the grid
-                           grid = createGrid(rows: 8, columns: 16)
-                           
-                           //Reset the dataGrid
-                           dataGrid.reset()
-                       },
+                    // Reste the grid
+                    grid = createGrid(rows: 8, columns: 16)
+                    
+                    //Reset the dataGrid
+                    dataGrid.reset()
+                },
                              secondaryButton: .cancel())
                 
             case .jsonAlert:
@@ -835,26 +835,26 @@ struct NewLevelView: View {
                              message: Text("Error during the export of JSON. Call 9-1-1 !"),
                              primaryButton: .cancel(),
                              secondaryButton: .default(Text(""))
-                       )
+                )
                 
             case .emptyLevelAlert:
                 return Alert(title: Text("Seriously ?"),
                              message: Text("You really want to make an empty level ? Think about it."),
                              primaryButton: .cancel(),
                              secondaryButton: .default(Text(""))
-                       )
+                )
                 
-           
+                
             case .noTeleporter:
                 return Alert(title: Text("[!] Teleporter To Scene [!]"),
                              message: Text("You have not added a teleporter... Are you sure about it ?"),
                              primaryButton: .cancel(Text("Add teleporter")),
                              secondaryButton: .default(Text("Let me cook"), action: {showLevelNameJSONPopover = true})
                              
-                       )
-            
+                )
                 
-            
+                
+                
             }
         }
         .onAppear{
@@ -883,8 +883,9 @@ struct NewLevelView: View {
         }
     }
     
-    private func saveConditionForTeleporter(_ row: int, column : Int) -> Bool {
-        teleporterDataPositions[row][column].0 == -1 || teleporterDataPositions[row][column].1 == -1  || teleporterData[row][column] == "none" || teleporterData[row][column] == ""
-     
+    private func saveConditionForTeleporter(_ row: Int, column : Int) -> Bool {
+        teleporterDataPositions[row][column].0 == -1 || teleporterDataPositions[row][column].1 == -1  || teleporterData[row][column] == "none" || !isInputValid(teleporterData[row][column])
+        
+    }
 }
 

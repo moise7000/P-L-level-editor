@@ -111,6 +111,9 @@ func fromStringToUrl(from string: String) -> URL? {
     return URL(string: string)
 }
 
+func deleteEnderWhiteSpace(_ input: String) -> String {
+    return input.trimmingCharacters(in: .whitespacesAndNewlines)
+}
 func formatNextLevelNameForTeleporter(_ inputNextLevelName: String) -> String {
     var formatedNextLevelName: String = ""
     for char in inputNextLevelName{
@@ -120,7 +123,7 @@ func formatNextLevelNameForTeleporter(_ inputNextLevelName: String) -> String {
             formatedNextLevelName.append("_")
         }
     }
-    return formatedNextLevelName
+    return deleteEnderWhiteSpace(formatedNextLevelName)
 }
 
 
