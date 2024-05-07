@@ -5,7 +5,7 @@ Editeur de niveau Bâto & Ver2Ter
 
 ## Installation 
 
-Tout est dans le fichier ```PL_LevelEditor_v1.dmg```. Il se trouve dans [```P-L-level-editor/versions/1.0```](https://github.com/moise7000/P-L-level-editor/tree/main/versions/1.0)
+Tout est dans le fichier ```PL_LevelEditor_11.dmg```. Il se trouve dans [```P-L-level-editor/versions/1.1```](https://github.com/moise7000/P-L-level-editor/tree/main/versions/1.1)
 
 
 ## Gestion des Assets
