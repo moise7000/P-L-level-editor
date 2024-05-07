@@ -594,14 +594,14 @@ struct NewLevelView: View {
                                                                             Text("\($0)")
                                                                         }
                                                                     }
-                                                                    .labelsHidden()
+                                                                    
                                                         
                                                         Picker("Y Position", selection: $teleporterDataPositions[row][column].1) {
                                                                         ForEach(0..<8) {
                                                                             Text("\($0)")
                                                                         }
                                                                     }
-                                                                    .labelsHidden()
+                                                                    
                                                                     
                                                     }
                                                     .padding()
