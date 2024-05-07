@@ -695,39 +695,39 @@ struct NewLevelView: View {
                     
                     
                     Spacer()
-                    Button {
-                        showLevelNamePopover = true
-                        //Pick a level Name
-                        //save in Swiftdata
-                    } label: {
-                        Text("Save Localy")
-                    }
-                    .popover(isPresented: $showLevelNamePopover) {
-                        VStack{
-                            Text("Current Level")
-                            TextField("Pick a fancy name", text: $currentLevelName)
-                                .padding()
-                            
-                            if isInputValid(currentLevelName) {
-                                Button {
-                                    print("save button pressed")
-                                    dataGrid.setName(name: currentLevelName)
-                                    dataGrid.save(modelContext: modelContext)
-                                    dismiss()
-                                    
-                                    
-                                    //save
-                                } label: {
-                                    Text("Save")
-                                }
-                                .keyboardShortcut(.defaultAction)
-                            }
-                            
-                            
-                        }
-                        .frame(width: 400, height: 400)
-                        
-                    }
+//                    Button {
+//                        showLevelNamePopover = true
+//                        //Pick a level Name
+//                        //save in Swiftdata
+//                    } label: {
+//                        Text("Save Localy")
+//                    }
+//                    .popover(isPresented: $showLevelNamePopover) {
+//                        VStack{
+//                            Text("Current Level")
+//                            TextField("Pick a fancy name", text: $currentLevelName)
+//                                .padding()
+//                            
+//                            if isInputValid(currentLevelName) {
+//                                Button {
+//                                    print("save button pressed")
+//                                    dataGrid.setName(name: currentLevelName)
+//                                    dataGrid.save(modelContext: modelContext)
+//                                    
+//                                    
+//                                    
+//                                    //save
+//                                } label: {
+//                                    Text("Save")
+//                                }
+//                                .keyboardShortcut(.defaultAction)
+//                            }
+//                            
+//                            
+//                        }
+//                        .frame(width: 400, height: 400)
+//                        
+//                    }
                     
                     
                     
@@ -742,12 +742,15 @@ struct NewLevelView: View {
                         if dataGrid.isEmpty() {
                             activeAlert = .emptyLevelAlert
                             showAlert = true
+                            print("[DEBUG] Level Empty")
                         } else {
                             if !dataGrid.containsTeleporter() {
                                 activeAlert = .noTeleporter
                                 showAlert = true
+                                print("[DEBUG] No teleporter")
                             } else {
-                                showLevelNamePopover = true
+                                showLevelNameJSONPopover = true
+                                print("[DEBUG] Everything is awsome")
                             }
                             
                             
