@@ -16,7 +16,7 @@ enum AssetsType: Codable, CaseIterable {
 
 
 func getTypeFromString(from string:String) -> AssetsType? {
-    if string == "entities" {
+    if string == "entitiesForEditor" {
         return AssetsType.ENTITY
     }
     if string == "structures" {
