@@ -17,7 +17,7 @@ struct ContentView: View {
                            "Source Assets Folder"]
         let stringViewsV2 = ["New Level",
                            "Assets Collection",
-                           "Source Assets Folder"]
+                           "Source Assets Folder", "test"]
         
         NavigationSplitView {
             List(stringViewsV2, id: \.self, selection: $selectedView) { view in
@@ -31,6 +31,9 @@ struct ContentView: View {
                 
             }
         } detail: {
+            if selectedView == "test" {
+                PickerTestView()
+            }
             if selectedView == "New Level" {
                 NewLevelView()
             }

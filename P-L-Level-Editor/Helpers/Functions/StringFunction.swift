@@ -127,7 +127,7 @@ func formatNextLevelNameForTeleporter(_ inputNextLevelName: String) -> String {
 func makeTeleporterToScene(nextLevelName: String, posX:Int, posY: Int) -> String {
     var out: String = ""
     out += formatNextLevelNameForTeleporter(nextLevelName)
-    out += String(posX) + "_" + String(posY)
+    out += "_" + String(posX) + "_" + String(posY)
     return out
 }
 

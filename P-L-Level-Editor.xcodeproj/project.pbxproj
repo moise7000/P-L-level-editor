@@ -42,6 +42,7 @@
 		40BB3D8B2BDEA11800F64E21 /* NotificationBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BB3D8A2BDEA11800F64E21 /* NotificationBadgeView.swift */; };
 		40C319482BDB9A5100EF6DDC /* FileMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C319472BDB9A5100EF6DDC /* FileMonitor.swift */; };
 		40C3194A2BDB9AD800EF6DDC /* FileMonitorTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C319492BDB9AD800EF6DDC /* FileMonitorTestView.swift */; };
+		40D8D4F52BEA701D00386841 /* PickerTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D8D4F42BEA701D00386841 /* PickerTestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		40BB3D8A2BDEA11800F64E21 /* NotificationBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBadgeView.swift; sourceTree = "<group>"; };
 		40C319472BDB9A5100EF6DDC /* FileMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileMonitor.swift; sourceTree = "<group>"; };
 		40C319492BDB9AD800EF6DDC /* FileMonitorTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileMonitorTestView.swift; sourceTree = "<group>"; };
+		40D8D4F42BEA701D00386841 /* PickerTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 			children = (
 				406164712BDADE1500021275 /* FileManagerTesterView.swift */,
 				40C319492BDB9AD800EF6DDC /* FileMonitorTestView.swift */,
+				40D8D4F42BEA701D00386841 /* PickerTestView.swift */,
 			);
 			path = Testers;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				4061646D2BDADD9000021275 /* DetailView.swift in Sources */,
 				40BB3D8B2BDEA11800F64E21 /* NotificationBadgeView.swift in Sources */,
 				4061646F2BDADDAB00021275 /* CollisionsView.swift in Sources */,
+				40D8D4F52BEA701D00386841 /* PickerTestView.swift in Sources */,
 				406164342BDAD9DB00021275 /* ContentView.swift in Sources */,
 				406164552BDADBA600021275 /* AssetsCollectionTypedView.swift in Sources */,
 				4061645B2BDADC2800021275 /* GridItemModel.swift in Sources */,

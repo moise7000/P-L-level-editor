@@ -80,6 +80,7 @@ struct NewLevelView: View {
     
     @State private var aptData: [[[DirectionAPT]]]
     @State private var teleporterData: [[String]]
+    @State private var teleporterDataPositions: [[(Int, Int)]]
     init() {
             _showDetailPopover = State(initialValue: Array(repeating: Array(repeating: false, count: 16), count: 8))
             _showEditAPTPopover = State(initialValue: Array(repeating: Array(repeating: false, count: 16), count: 8))
@@ -87,6 +88,7 @@ struct NewLevelView: View {
             _aptData = State(initialValue: Array(repeating: Array(repeating: [], count: 16), count: 8))
             _showTeleporterPopover = State(initialValue: Array(repeating: Array(repeating: false, count: 16), count: 8))
             _teleporterData = State(initialValue: Array(repeating: Array(repeating: "none", count: 16), count: 8))
+            _teleporterDataPositions = State(initialValue: Array(repeating: Array(repeating: (-1,-1), count: 16), count: 8))
             
         }
     
@@ -375,6 +377,7 @@ struct NewLevelView: View {
                                                     print(aptData[row][column])
                                                     print(dataGrid.gridItems[row][column])
                                                     print(isImageSizeValid(grid.images[row][column]!))
+                                                    print("TeleporterToScene: \(teleporterData[row][column])")
                                                 } label:{
                                                     Text("DEBUG")
                                                 }
@@ -419,7 +422,7 @@ struct NewLevelView: View {
                                                         showTeleporterPopover[row][column] = true
                                                     } label:{
                                                         Text("Add level teleporter ")
-//                                                        TextField("Level name", text: <#T##Binding<String>#>)
+                                                        
                                                     }
                                                 } else {
                                                     Text("Add level teleporter ")
@@ -583,10 +586,42 @@ struct NewLevelView: View {
                                                                a: a, b: b, c: c, d: d)
                                             }
                                             .popover(isPresented: $showTeleporterPopover[row][column]) {
-                                                HStack{
-                                                    Text("Coming Soon !")
-                                                        .padding()
+                                                VStack{
+                                                    TextField("Level name", text: $teleporterData[row][column])
+                                                    HStack{
+                                                        Picker("X Position", selection: $teleporterDataPositions[row][column].0) {
+                                                                        ForEach(0..<16) {
+                                                                            Text("\($0)")
+                                                                        }
+                                                                    }
+                                                                    .labelsHidden()
+                                                        
+                                                        Picker("Y Position", selection: $teleporterDataPositions[row][column].1) {
+                                                                        ForEach(0..<8) {
+                                                                            Text("\($0)")
+                                                                        }
+                                                                    }
+                                                                    .labelsHidden()
+                                                                    
+                                                    }
+                                                    .padding()
+                                                    Button{
+                                                        let formatedInput = formatNextLevelNameForTeleporter(teleporterData[row][column])
+                                                        let xPosition = teleporterDataPositions[row][column].0
+                                                        let yPosition = teleporterDataPositions[row][column].1
+                                                        let teleporter = makeTeleporterToScene(nextLevelName: formatedInput, posX: xPosition, posY: yPosition)
+                                                        dataGrid.setTeleporterToScene(row,
+                                                                                      column,
+                                                                                      teleporterToScene: teleporter)
+                                                        showTeleporterPopover[row][column] = false
+                                                    } label: {
+                                                        Text("Save")
+                                                    }
+                                                    .keyboardShortcut(.defaultAction)
+                                                    
+                                                        
                                                 }
+                                                .padding()
                                                 .frame(width: 300, height: 300)
                                             }
                                             .border(displayGrid ? Color.black : Color.clear, width: 0.1)
