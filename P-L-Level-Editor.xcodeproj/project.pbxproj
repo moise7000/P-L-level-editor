@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		403DEA792BF4EF4800586B79 /* LevelsGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403DEA782BF4EF4800586B79 /* LevelsGraphView.swift */; };
+		403DEA7B2BF4EFA300586B79 /* LevelsGraphMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403DEA7A2BF4EFA300586B79 /* LevelsGraphMonitor.swift */; };
+		403DEA7D2BF610AD00586B79 /* GraphModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403DEA7C2BF610AD00586B79 /* GraphModel.swift */; };
+		403DEA7F2BF6189000586B79 /* GraphTesterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403DEA7E2BF6189000586B79 /* GraphTesterView.swift */; };
 		406164322BDAD9DB00021275 /* P_L_Level_EditorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164312BDAD9DB00021275 /* P_L_Level_EditorApp.swift */; };
 		406164342BDAD9DB00021275 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164332BDAD9DB00021275 /* ContentView.swift */; };
 		406164362BDAD9DB00021275 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164352BDAD9DB00021275 /* Item.swift */; };
@@ -46,6 +50,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		403DEA782BF4EF4800586B79 /* LevelsGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsGraphView.swift; sourceTree = "<group>"; };
+		403DEA7A2BF4EFA300586B79 /* LevelsGraphMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsGraphMonitor.swift; sourceTree = "<group>"; };
+		403DEA7C2BF610AD00586B79 /* GraphModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphModel.swift; sourceTree = "<group>"; };
+		403DEA7E2BF6189000586B79 /* GraphTesterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTesterView.swift; sourceTree = "<group>"; };
 		4061642E2BDAD9DB00021275 /* P-L-Level-Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "P-L-Level-Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		406164312BDAD9DB00021275 /* P_L_Level_EditorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P_L_Level_EditorApp.swift; sourceTree = "<group>"; };
 		406164332BDAD9DB00021275 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -149,6 +157,7 @@
 				406164502BDADB7300021275 /* SavedLevelsView.swift */,
 				406164522BDADB8A00021275 /* AssetsCollectionView.swift */,
 				406164542BDADBA600021275 /* AssetsCollectionTypedView.swift */,
+				403DEA782BF4EF4800586B79 /* LevelsGraphView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -159,6 +168,7 @@
 				406164712BDADE1500021275 /* FileManagerTesterView.swift */,
 				40C319492BDB9AD800EF6DDC /* FileMonitorTestView.swift */,
 				40D8D4F42BEA701D00386841 /* PickerTestView.swift */,
+				403DEA7E2BF6189000586B79 /* GraphTesterView.swift */,
 			);
 			path = Testers;
 			sourceTree = "<group>";
@@ -186,6 +196,8 @@
 				40BB3D882BDE69CC00F64E21 /* AssetsTypeModel.swift */,
 				4061645E2BDADC5200021275 /* APTModel.swift */,
 				406164602BDADC7400021275 /* LevelGridForSwiftDataModel.swift */,
+				403DEA7A2BF4EFA300586B79 /* LevelsGraphMonitor.swift */,
+				403DEA7C2BF610AD00586B79 /* GraphModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -305,11 +317,13 @@
 				406164662BDADCEE00021275 /* ImageFunction.swift in Sources */,
 				406164642BDADCD900021275 /* ArrayFunction.swift in Sources */,
 				406164592BDADC0900021275 /* GridModel.swift in Sources */,
+				403DEA7F2BF6189000586B79 /* GraphTesterView.swift in Sources */,
 				4061644B2BDADB2000021275 /* NewLevelView.swift in Sources */,
 				4061646D2BDADD9000021275 /* DetailView.swift in Sources */,
 				40BB3D8B2BDEA11800F64E21 /* NotificationBadgeView.swift in Sources */,
 				4061646F2BDADDAB00021275 /* CollisionsView.swift in Sources */,
 				40D8D4F52BEA701D00386841 /* PickerTestView.swift in Sources */,
+				403DEA7D2BF610AD00586B79 /* GraphModel.swift in Sources */,
 				406164342BDAD9DB00021275 /* ContentView.swift in Sources */,
 				406164552BDADBA600021275 /* AssetsCollectionTypedView.swift in Sources */,
 				4061645B2BDADC2800021275 /* GridItemModel.swift in Sources */,
@@ -321,7 +335,9 @@
 				4061644F2BDADB5800021275 /* SoundEditorView.swift in Sources */,
 				40C319482BDB9A5100EF6DDC /* FileMonitor.swift in Sources */,
 				4061646A2BDADD1F00021275 /* JSONFunction.swift in Sources */,
+				403DEA7B2BF4EFA300586B79 /* LevelsGraphMonitor.swift in Sources */,
 				40BB3D892BDE69CC00F64E21 /* AssetsTypeModel.swift in Sources */,
+				403DEA792BF4EF4800586B79 /* LevelsGraphView.swift in Sources */,
 				406164682BDADD0800021275 /* StringFunction.swift in Sources */,
 				406164752BDADE4000021275 /* AssetsDataModel.swift in Sources */,
 				40C3194A2BDB9AD800EF6DDC /* FileMonitorTestView.swift in Sources */,

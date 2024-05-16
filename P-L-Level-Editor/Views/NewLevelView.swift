@@ -529,7 +529,7 @@ struct NewLevelView: View {
                                                                     // affect the changement to the dataGrid
                                                                     dataGrid.setAllAPT(data: aptData)
                                                                 } label: {
-                                                                    Text("Delete EAST")
+                                                                    Text("Delete SOUTH")
                                                                         .foregroundStyle(.pink)
                                                                 }
                                                             } else {
@@ -539,7 +539,7 @@ struct NewLevelView: View {
                                                                     // affect the changement to the dataGrid
                                                                     dataGrid.setAllAPT(data: aptData)
                                                                 } label: {
-                                                                    Text("EAST")
+                                                                    Text("SOUTH")
                                                                 }
                                                                 
                                                             }

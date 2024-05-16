@@ -13,6 +13,7 @@ func readJSON(url: URL) -> [String: Any]? {
         let data = try Data(contentsOf: url)
         let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
         if let jsonResult = jsonResult as? Dictionary<String, Any> {
+            
             return jsonResult
         }
     } catch {
@@ -419,3 +420,12 @@ func imageNamesGridFromJSON(from json: [String: Any]) -> LevelGrid? {
     
     return grid
 }
+
+
+
+//MARK: Create graph = [Nodes] + [Edges]
+// for all json :
+// - read JSON to make a dict
+//      - for each structures :
+//            - from a structure get teleport_to_scene if != "none"
+//            - create node

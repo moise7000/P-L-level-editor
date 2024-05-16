@@ -134,6 +134,20 @@ func makeTeleporterToScene(nextLevelName: String, posX:Int, posY: Int) -> String
     return out
 }
 
+func getLastElementFromUrlString(from string: String) -> String {
+    let components = string.split(separator: "/")
+    return String(components.last ?? "")
+}
+
+
+
+func getLevelNameFromTeleportToScene(_ tts: String) -> String {
+    var components = tts.split(separator: "_")
+    guard components.count > 2 else { return tts }
+    components.removeLast(2)
+    return components.joined(separator: "_")
+}
+
 
 
 //MARK: For edit

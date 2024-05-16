@@ -1,26 +1,59 @@
-
 import SwiftUI
 
-struct PickerTestView: View {
-    @State private var selectedNumber = 0
+struct GraphTestView: View {
+    @State var nodes: [DraggableNode]
+    let edges: [Edge]
+    
+    @State private var zoom: CGFloat = 3.0
 
     var body: some View {
-        VStack {
-            Text("Nombre sélectionné : \(selectedNumber)")
-                .font(.title)
-            Picker("Sélectionnez un nombre", selection: $selectedNumber) {
-                            ForEach(1..<100) {
-                                Text("\($0)")
-                            }
+        
+            VStack{
+                
+                
+                ZStack {
+                    ForEach(nodes.indices) { i in
+                        DraggableNodeView(node: $nodes[i])
+                    }
+                    ForEach(edges) { edge in
+                        Path { path in
+                            path.move(to: nodes[edge.start].position)
+                            path.addLine(to: nodes[edge.end].position)
                         }
-                        .labelsHidden()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        }
+                        .stroke(Color.green, lineWidth: 2)
+                    }
+                }
+                .scaleEffect(zoom)
+            }
+            
+            
+        
+        
+        
+        
+        
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+
+
+struct DraggableNodeView: View {
+    @Binding var node: DraggableNode
+
+    var body: some View {
+        Text(node.label)
+            .font(.title)
+            .foregroundStyle(.pink)
+            .position(node.position)
+            .gesture(
+                DragGesture()
+                    .onChanged { value in
+                        node.position = value.location
+                    }
+            )
+        
+        
     }
 }
+
+

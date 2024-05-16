@@ -10,15 +10,12 @@ struct ContentView: View {
     
     var body: some View {
         
-        let stringViewsV1 = ["New Level",
-                           "Edit Level",
-                           "Sounds",
-                           "Assets Collection",
-                           "Source Assets Folder"]
+
         let stringViewsV2 = ["New Level",
                            "Assets Collection",
-                           "Source Assets Folder", "test"]
+                           "Source Assets Folder","JSON Graph", "Source Scenes Folder"]
         
+    
         NavigationSplitView {
             List(stringViewsV2, id: \.self, selection: $selectedView) { view in
                 HStack{
@@ -30,14 +27,25 @@ struct ContentView: View {
                 }
                 
             }
+            
+            
+            
         } detail: {
-            if selectedView == "test" {
-                PickerTestView()
-            }
             if selectedView == "New Level" {
                 NewLevelView()
             }
             
+            if selectedView == "JSON Graph" {
+                
+                let g = LevelsGraphFileMonitorSingleton.shared.makeGraph()
+                let nodes = LevelsGraphFileMonitorSingleton.shared.getNodes()
+                let edges = LevelsGraphFileMonitorSingleton.shared.getEdges()
+                
+                
+                GraphTestView2(nodes: nodes, edges: edges)
+                
+                
+            }
             
             if selectedView == "Edit Level" {
                 PlaygroundView()
@@ -50,6 +58,10 @@ struct ContentView: View {
             }
             if selectedView == "Source Assets Folder" {
                 FileMonitorTestView()
+            }
+            
+            if selectedView == "Source Scenes Folder" {
+                LevelGraphView()
             }
 
 
