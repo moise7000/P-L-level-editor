@@ -12,8 +12,10 @@ struct ContentView: View {
         
 
         let stringViewsV2 = ["New Level",
-                           "Assets Collection",
-                           "Source Assets Folder","JSON Graph", "Source Scenes Folder"]
+                             "Assets Collection",
+                             "Levels Architecture",
+                             "Source Assets Folder",
+                             "Source Scenes Folder"]
         
     
         NavigationSplitView {
@@ -21,6 +23,11 @@ struct ContentView: View {
                 HStack{
                     Text(view)
                     if view == "Source Assets Folder" && (AssetsFileMonitorSingleton.shared.isAssetsMonitoredEmpty() || AssetsFileMonitorSingleton.shared.isFilesMonitoredEmpty()) {
+                        Spacer()
+                        NotificationBadgeView()
+                    }
+                    
+                    if view == "Source Scenes Folder" && LevelsGraphFileMonitorSingleton.shared.isFilesMonitoredEmpty(){
                         Spacer()
                         NotificationBadgeView()
                     }
@@ -35,7 +42,7 @@ struct ContentView: View {
                 NewLevelView()
             }
             
-            if selectedView == "JSON Graph" {
+            if selectedView == "Levels Architecture" {
                 
                 let g = LevelsGraphFileMonitorSingleton.shared.makeGraph()
                 let nodes = LevelsGraphFileMonitorSingleton.shared.getNodes()

@@ -372,15 +372,15 @@ struct NewLevelView: View {
                                             }
                                         
                                             .contextMenu(ContextMenu(menuItems: {
-                                                Button{
-                                                    print("[DEBUG] is level empty ? : \(dataGrid.isEmpty())")
-                                                    print(aptData[row][column])
-                                                    print(dataGrid.gridItems[row][column])
-                                                    print(isImageSizeValid(grid.images[row][column]!))
-                                                    print("TeleporterToScene: \(teleporterData[row][column])")
-                                                } label:{
-                                                    Text("DEBUG")
-                                                }
+//                                                Button{
+//                                                    print("[DEBUG] is level empty ? : \(dataGrid.isEmpty())")
+//                                                    print(aptData[row][column])
+//                                                    print(dataGrid.gridItems[row][column])
+//                                                    print(isImageSizeValid(grid.images[row][column]!))
+//                                                    print("TeleporterToScene: \(teleporterData[row][column])")
+//                                                } label:{
+//                                                    Text("DEBUG")
+//                                                }
                                                 
                                                 
                                                 Button{

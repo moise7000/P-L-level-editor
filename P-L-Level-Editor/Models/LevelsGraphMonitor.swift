@@ -114,6 +114,8 @@ class LevelsGraphFileMonitorSingleton {
         return self.files == []
     }
     
+    
+    
     func DEBUG() -> Void {
         print("[DEBUG] Edges: \(self.getEdges())")
         print("[DEBUG] Nodes: \(self.getNodes())")
