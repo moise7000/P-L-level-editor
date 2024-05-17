@@ -11,6 +11,7 @@
 		403DEA7B2BF4EFA300586B79 /* LevelsGraphMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403DEA7A2BF4EFA300586B79 /* LevelsGraphMonitor.swift */; };
 		403DEA7D2BF610AD00586B79 /* GraphModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403DEA7C2BF610AD00586B79 /* GraphModel.swift */; };
 		403DEA7F2BF6189000586B79 /* GraphTesterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403DEA7E2BF6189000586B79 /* GraphTesterView.swift */; };
+		403DEA812BF776D800586B79 /* GraphMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403DEA802BF776D800586B79 /* GraphMapView.swift */; };
 		406164322BDAD9DB00021275 /* P_L_Level_EditorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164312BDAD9DB00021275 /* P_L_Level_EditorApp.swift */; };
 		406164342BDAD9DB00021275 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164332BDAD9DB00021275 /* ContentView.swift */; };
 		406164362BDAD9DB00021275 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406164352BDAD9DB00021275 /* Item.swift */; };
@@ -54,6 +55,7 @@
 		403DEA7A2BF4EFA300586B79 /* LevelsGraphMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsGraphMonitor.swift; sourceTree = "<group>"; };
 		403DEA7C2BF610AD00586B79 /* GraphModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphModel.swift; sourceTree = "<group>"; };
 		403DEA7E2BF6189000586B79 /* GraphTesterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTesterView.swift; sourceTree = "<group>"; };
+		403DEA802BF776D800586B79 /* GraphMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphMapView.swift; sourceTree = "<group>"; };
 		4061642E2BDAD9DB00021275 /* P-L-Level-Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "P-L-Level-Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		406164312BDAD9DB00021275 /* P_L_Level_EditorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P_L_Level_EditorApp.swift; sourceTree = "<group>"; };
 		406164332BDAD9DB00021275 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				40C319492BDB9AD800EF6DDC /* FileMonitorTestView.swift */,
 				40D8D4F42BEA701D00386841 /* PickerTestView.swift */,
 				403DEA7E2BF6189000586B79 /* GraphTesterView.swift */,
+				403DEA802BF776D800586B79 /* GraphMapView.swift */,
 			);
 			path = Testers;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				4061644D2BDADB3F00021275 /* EditLevelView.swift in Sources */,
 				406164772BDADE5200021275 /* DataController.swift in Sources */,
 				406164722BDADE1500021275 /* FileManagerTesterView.swift in Sources */,
+				403DEA812BF776D800586B79 /* GraphMapView.swift in Sources */,
 				406164572BDADBFD00021275 /* SavedLevelsModel.swift in Sources */,
 				406164612BDADC7400021275 /* LevelGridForSwiftDataModel.swift in Sources */,
 				4061644F2BDADB5800021275 /* SoundEditorView.swift in Sources */,
@@ -493,7 +497,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ed.P-L-Level-Editor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -521,7 +525,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ed.P-L-Level-Editor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

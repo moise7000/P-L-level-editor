@@ -81,6 +81,9 @@ struct NewLevelView: View {
     @State private var aptData: [[[DirectionAPT]]]
     @State private var teleporterData: [[String]]
     @State private var teleporterDataPositions: [[(Int, Int)]]
+    
+    
+    
     init() {
         _showDetailPopover = State(initialValue: Array(repeating: Array(repeating: false, count: 16), count: 8))
         _showEditAPTPopover = State(initialValue: Array(repeating: Array(repeating: false, count: 16), count: 8))
@@ -90,11 +93,16 @@ struct NewLevelView: View {
         _teleporterData = State(initialValue: Array(repeating: Array(repeating: "none", count: 16), count: 8))
         _teleporterDataPositions = State(initialValue: Array(repeating: Array(repeating: (-1,-1), count: 16), count: 8))
         
+        
+        
     }
     
     @State private var testBoolAPT: Bool = false
     
     //----------------------------------------------------//
+    
+    
+    
     
     let a: CGFloat = 1.0
     let b: CGFloat = 70.0
@@ -103,8 +111,8 @@ struct NewLevelView: View {
     @State private var rotation: Double = 0
     
     var body: some View {
-        let allAssets = AssetsFileMonitorSingleton.shared.getAssets()
-        
+         
+        var allAssets = AssetsFileMonitorSingleton.shared.getAssets()
         
         HStack{
             VStack{
@@ -864,6 +872,7 @@ struct NewLevelView: View {
             //self.dataGrid = LevelGridForItem(rows: 8, columns: 16)
         }
         .navigationTitle("Level Editor")
+        
     }
     
     

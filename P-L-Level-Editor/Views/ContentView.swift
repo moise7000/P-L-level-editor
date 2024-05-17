@@ -6,6 +6,7 @@ import AppKit
 struct ContentView: View {
     
     @State private var selectedView: String = "New Level"
+    @State private var selectedView2: String?
     
     
     var body: some View {
@@ -17,6 +18,7 @@ struct ContentView: View {
                              "Source Assets Folder",
                              "Source Scenes Folder"]
         
+      
     
         NavigationSplitView {
             List(stringViewsV2, id: \.self, selection: $selectedView) { view in
@@ -35,7 +37,7 @@ struct ContentView: View {
                 
             }
             
-            
+
             
         } detail: {
             if selectedView == "New Level" {
@@ -205,5 +207,12 @@ struct ContentView: View {
 //        }
     }
 }
+
+
+
+
+
+
+
 
 
