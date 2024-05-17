@@ -5,7 +5,7 @@ Editeur de niveau Bâto & Ver2Ter
 
 ## Installation 
 
-Tout est dans le fichier ```PL_LevelEditor_11.dmg```. Il se trouve dans [```P-L-level-editor/versions/1.1```](https://github.com/moise7000/P-L-level-editor/tree/main/versions/1.1)
+Tout est dans le fichier ```PL_LevelEditor_12.dmg```. Il se trouve dans [```P-L-level-editor/versions/1.2```](https://github.com/moise7000/P-L-level-editor/tree/main/versions/1.2)
 
 
 ## Gestion des Assets
@@ -18,6 +18,7 @@ Dans le projet ```C```, on a l'architecture de fichiers suivante :
         |-structures
         |-backgrounds
         |-entitiesForEditor : Contient une seule frame par sprite. Cette frame sera affichée dans l'éditeur
+    |-scenes
         
 ```
         
@@ -30,6 +31,8 @@ En ce qui concerne l'ajout d'asset il faut procéder de la manière suivante :
 - Pour l'ajout d'entities vous devez ajouter votre fichier PNG (une frame unique qui sera utiliser dans l'éditeur) dans le dossier ```src/assets/entitiesForEditor``` puis votre spritesheet dans le dossier ```src/assets/entities```. Notez que la frame unique et le spritesheet doivent porter le même nom. 
  
 
+## Affichage des niveaux 
 
+En choisissant le dossier ```src/scenes``` vous pourrez voir dans l'onglet ```Levels Architecture``` un graphe représentant l'interconnexion des différentes scenes.  
 
 
