@@ -298,6 +298,52 @@ struct NewLevelView: View {
                     
                     if displayBackground {
                         Rectangle()
+                            .fill(getColorBackgroundBorder())
+                            .frame(width: 18 * 16, height: 10 * 16)
+                            .border(Color.blue)
+                        
+                            .overlay {
+                                if selectedBackground != nil && NSImage(contentsOf: selectedBackground!.url!) != nil {
+                                    Image(nsImage: NSImage(contentsOf: selectedBackground!.url!)!)
+                                        .interpolation(.none)
+                                }
+                            }
+                        
+                    }
+                    
+                    
+                    if displayForeground {
+                        
+                        VStack(spacing: 0.01) {
+                            ForEach(0..<10, id: \.self) { row in
+                                HStack(spacing: 0.01) {
+                                    ForEach(0..<18, id: \.self) { column in
+                                        
+                                        if row < 1 || row > 8 || column < 1 || column > 16{
+                                            Rectangle()
+                                                .fill(Color.blue.opacity(0.1))
+                                                .frame(width: 16, height: 16)
+                                            
+                                                .border(displayGrid ? Color.black : Color.clear, width: 0.1)
+                                        } else {
+                                            Rectangle()
+                                                .fill(Color.blue.opacity(0.0))
+                                                .frame(width: 16, height: 16)
+                                        }
+                                        
+                                        
+                                        
+                                        
+                                        
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    
+                    if displayBackground {
+                        Rectangle()
                             .fill(getColorBackground())
                             .frame(width: 16 * 16, height: 8 * 16)
                             .border(Color.pink)
@@ -312,6 +358,8 @@ struct NewLevelView: View {
                     }
                     
                     if displayForeground {
+                        let borderRows = 1
+                        let borderColumns = 1
                         VStack(spacing: 0.01) {
                             ForEach(0..<grid.rows, id: \.self) { row in
                                 HStack(spacing: 0.01) {
@@ -667,6 +715,9 @@ struct NewLevelView: View {
                     
                     
                     
+
+                    
+                    
                     
                     
                 }
@@ -693,10 +744,6 @@ struct NewLevelView: View {
                     Toggle(isOn: $displayGrid) {
                         Text("Grid")
                     }
-                    
-                    //                    Toggle(isOn: $displayAllPassTrough) {
-                    //                    Text("AllPassTrough")
-                    //                }
                     
                     Button(action: {zoomLevel += 0.1}) {Text("+")}
                     
@@ -725,45 +772,8 @@ struct NewLevelView: View {
                     
                     
                     Spacer()
-//                    Button {
-//                        showLevelNamePopover = true
-//                        //Pick a level Name
-//                        //save in Swiftdata
-//                    } label: {
-//                        Text("Save Localy")
-//                    }
-//                    .popover(isPresented: $showLevelNamePopover) {
-//                        VStack{
-//                            Text("Current Level")
-//                            TextField("Pick a fancy name", text: $currentLevelName)
-//                                .padding()
-//                            
-//                            if isInputValid(currentLevelName) {
-//                                Button {
-//                                    print("save button pressed")
-//                                    dataGrid.setName(name: currentLevelName)
-//                                    dataGrid.save(modelContext: modelContext)
-//                                    
-//                                    
-//                                    
-//                                    //save
-//                                } label: {
-//                                    Text("Save")
-//                                }
-//                                .keyboardShortcut(.defaultAction)
-//                            }
-//                            
-//                            
-//                        }
-//                        .frame(width: 400, height: 400)
-//                        
-//                    }
-                    
-                    
-                    
-                    
-                    
-                    
+
+
                     
                     Button {
                         
@@ -903,6 +913,14 @@ struct NewLevelView: View {
     private func getColorBackground() -> Color {
         if selectedBackground == nil {
             return Color.pink.opacity(0.1)
+        } else {
+            return Color.clear
+        }
+    }
+    
+    private func getColorBackgroundBorder() -> Color {
+        if selectedBackground == nil {
+            return Color.blue.opacity(0.1)
         } else {
             return Color.clear
         }
