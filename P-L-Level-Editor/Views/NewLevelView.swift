@@ -465,6 +465,7 @@ struct NewLevelView: View {
                                                                     Text("Delete NORTH")
                                                                         .foregroundStyle(.pink)
                                                                 }
+                                                                .keyboardShortcut("n", modifiers: [])
                                                             } else {
                                                                 //MARK: Case NORTH not selected
                                                                 Button{
@@ -474,6 +475,7 @@ struct NewLevelView: View {
                                                                 } label: {
                                                                     Text("NORTH")
                                                                 }
+                                                                .keyboardShortcut("n", modifiers: [])
                                                                 
                                                             }
                                                             
@@ -492,6 +494,7 @@ struct NewLevelView: View {
                                                                         Text("Delete WEST")
                                                                             .foregroundStyle(.pink)
                                                                     }
+                                                                    .keyboardShortcut("w", modifiers: [])
                                                                 } else {
                                                                     //MARK: Case WEST not selected
                                                                     Button{
@@ -501,6 +504,7 @@ struct NewLevelView: View {
                                                                     } label: {
                                                                         Text("WEST")
                                                                     }
+                                                                    .keyboardShortcut("w", modifiers: [])
                                                                     
                                                                 }
                                                                 
@@ -516,6 +520,7 @@ struct NewLevelView: View {
                                                                         Text("Delete EAST")
                                                                             .foregroundStyle(.pink)
                                                                     }
+                                                                    .keyboardShortcut("e", modifiers: [])
                                                                 } else {
                                                                     //MARK: Case EAST not selected
                                                                     Button{
@@ -525,6 +530,7 @@ struct NewLevelView: View {
                                                                     } label: {
                                                                         Text("EAST")
                                                                     }
+                                                                    .keyboardShortcut("e", modifiers: [])
                                                                     
                                                                 }
                                                             }
@@ -540,6 +546,7 @@ struct NewLevelView: View {
                                                                     Text("Delete SOUTH")
                                                                         .foregroundStyle(.pink)
                                                                 }
+                                                                .keyboardShortcut("s", modifiers: [])
                                                             } else {
                                                                 //MARK: Case SOUTH not selected
                                                                 Button{
@@ -549,6 +556,7 @@ struct NewLevelView: View {
                                                                 } label: {
                                                                     Text("SOUTH")
                                                                 }
+                                                                .keyboardShortcut("s", modifiers: [])
                                                                 
                                                             }
                                                             
