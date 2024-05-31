@@ -91,6 +91,10 @@ class LevelGridForItem : Codable {
         self.gridItems[row][column].assets = asset
     }
     
+    func getAssetUrl(_ row: Int, _ column: Int) -> URL? {
+        return self.gridItems[row][column].assets?.url
+    }
+    
     func getAssetType(_ row: Int, _ column: Int) -> AssetsType? {
         return self.gridItems[row][column].assets?.type
     }

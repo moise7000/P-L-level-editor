@@ -370,11 +370,7 @@ struct NewLevelView: View {
                                                     //Delete the APT data
                                                     aptData[row][column] = []
                                                 }
-                                                
-                                                
-                                                
-                                                
-                                                
+     
                                                 
                                                 
                                             }
@@ -435,6 +431,24 @@ struct NewLevelView: View {
                                                 } else {
                                                     Text("Add level teleporter ")
                                                 }
+                                                
+                                                if grid.images[row][column] != nil && dataGrid.get(row,column) != nil && dataGrid.getAsset(row, column) != nil && dataGrid.getAssetUrl(row, column) != nil {
+                                                    Button{
+                                                        // change selected assets
+                                                        isErazerSelected = false
+                                                        self.selectedAsset = dataGrid.getAsset(row, column)
+                                                        self.selectedImage = dataGrid.getAssetUrl(row, column)
+                                                        
+                                                        
+                                                    } label:{
+                                                        Text("Copy Asset")
+                                                        
+                                                    }
+                                                } else {
+                                                    Text("Copy Asset")
+                                                }
+                                                
+                                            
                                                 
                                                 
                                             }))
